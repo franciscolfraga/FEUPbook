@@ -6,6 +6,7 @@
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   $conn->query("SET SCHEMA 'Project'");
+
   if (isset($_SESSION['error_message'])) {
     $_ERROR_MESSAGE = $_SESSION['error_message'];
     unset($_SESSION['error_message']);

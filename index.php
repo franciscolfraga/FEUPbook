@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<?php include ('config/init.php');?>
 <html lang="en-US">
+  <?php
+  include ('config/init.php');
+  ?>
   <head>
-   <title>Feupbook</title>
+   <title>FEUPbook</title>
+   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
   <body>
     <nav>
@@ -16,7 +20,6 @@
           include ('views/register.php');
         } ?>
     </nav>
-
-    <?php include ('views/errors.php');?>
+    <?php include ('views/notifications.php');?>
   </body>
 </html>
