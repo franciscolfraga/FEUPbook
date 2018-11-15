@@ -1,18 +1,16 @@
-<table border=1> <!-- this table might not be necessary, as it is only here making a border -->
-  <tr><td>
-    <form method="post" action="/actions/login.php">
-      <h4>Login Panel</h4>
-      <table>
-        <tr>
-          <td><label>Email:<input type="text" name="email" placeholder="email"></label></td>
-        </tr>
-        <tr>
-          <td><label>Password:<input type="password" name="password" placeholder="password"></label></td>
-        </tr>
-      </table>
-      <label>
-        <input type="submit" value="Login">
-      </label>
-    </form>
-  </td></tr>
-</table>
+<form method="post" action="/actions/login.php" id="login" style="display: block;">
+  <h2>Login Panel</h2>
+  <table>
+    <tr>
+      <td class="description">Email:</td>
+      <td><input type="text" name="email" placeholder="Email"></td>
+    </tr>
+    <tr>
+      <td class="description">Password:</td>
+      <td><input type="password" name="password" placeholder="Password"></td>
+    </tr>
+  </table>
+  <label>
+    <input type="submit" value="Login">
+  </label>
+</form>

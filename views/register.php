@@ -1,21 +1,20 @@
-<table border=1> <!-- this table might not be necessary, as it is only here making a border -->
-  <tr><td>
-    <form method="post" action="/actions/register.php">
-      <h4>Register Panel</h4>
-      <table>
-        <tr>
-          <td><label>Name:<input type="text" name="name"></label></td>
-        </tr>
-        <tr>
-          <td><label>Email:<input type="email" name="email"></label></td>
-        </tr>
-        <tr>
-          <td><label>Password:<input type="password" name="password"></label></td>
-        </tr>
-      </table>
-      <label>
-        <input type="submit" value="Register">
-      </label>
-    </form>
-  </td></tr>
-</table>
+<form method="post" action="/actions/register.php" id="register" style="display: none;">
+  <h2>Register Panel</h2>
+  <table>
+    <tr>
+      <td class="description">Name:</td>
+      <td><input type="text" name="name" placeholder="Name"></td>
+    </tr>
+    <tr>
+      <td class="description">Email:</td>
+      <td><input type="email" name="email" placeholder="Email"></td>
+    </tr>
+    <tr>
+      <td class="description">Password:</td>
+      <td><input type="password" name="password" placeholder="Password"></td>
+    </tr>
+  </table>
+  <label>
+    <input type="submit" value="Register">
+  </label>
+</form>

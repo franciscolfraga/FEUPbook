@@ -1,3 +1,143 @@
+html {
+  height: 100%;
+}
+
 body {
+  position: fixed;
   font-family: 'Lato', sans-serif;
+  top: 0%;
+  height: 100% !important;
+  margin: 0px;
+  width: 100%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 50px auto;
+  bottom: 5%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #8c2d19;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #ccc;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#login {
+  height: 100%;
+}
+
+#register {
+  height: 100%;
+}
+
+#session {
+  height: 100%;
+}
+
+.authentication-form, form {
+  margin: auto;
+  text-align: center;
+  width: 30%;
+  height: 50%;
+}
+
+.authentication-form form {
+  width: 100%;
+}
+
+.authentication-form {
+  width: 30%;
+  position: relative;
+  border: black solid 2px;
+  border-radius: 5px;
+  margin-top: 2%;
+}
+
+.authentication-form td {
+  border: solid transparent 1px;
+  margin: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.authentication-form .description {
+  width: 30% !important;
+}
+
+.authentication-form table {
+  margin: auto;
+  width: 60%;
+}
+
+.authentication-form form input[type=text], input[type=password], input[type=email] {
+  padding: 3%;
+  border: solid 1px black;
+  width: 90% !important;
+}
+
+.authentication-form form input[type=Submit] {
+  margin-top: 5%;
+  width: 20%;
+  height: 8%;
+  box-sizing: border-box;
+  -webkit-transition: .4s;
+  transition: .4s;
+  background-color: #ccc;
+  color: white;
+  border: solid transparent 1px;
+  cursor: pointer;
+}
+
+.authentication-form form input[type=Submit]:hover {
+  background-color: #8c2d19;
+  color: white;
 }
