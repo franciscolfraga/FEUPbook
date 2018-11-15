@@ -1,12 +1,6 @@
 <?php
   session_start();
 
-  $conn = new PDO('pgsql:host=dbm.fe.up.pt;port=5432;dbname=sibd1812', 'sibd1812', '9RONM1945N');
-  $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-  $conn->query("SET SCHEMA 'Project'");
-
   if (isset($_SESSION['error_message'])) {
     $_ERROR_MESSAGE = $_SESSION['error_message'];
     unset($_SESSION['error_message']);
@@ -21,4 +15,20 @@
     $_FORM_VALUES = $_SESSION['form_values'];
     unset($_SESSION['form_values']);
   }
+
+  if (isset($_SESSION['db_error'])) {
+    $_DB_ERROR = $_SESSION['db_error'];
+    unset($_SESSION['db_error']);
+  }
+
+  try{
+    $conn = new PDO('pgsql:host=dbm.fe.up.pt;port=5432;dbname=sibd1812', 'sibd1812', '9RONM1945N');
+    $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $conn->query("SET SCHEMA 'Project'");
+  } catch(PDOException $ex){
+    $_SESSION['db_error'] = $ex;
+  }
+
 ?>
