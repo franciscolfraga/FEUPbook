@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 In order to clone the project:
 ```
-git clone https://github.com/franciscolfraga/CyberGame.git
+git clone https://github.com/franciscolfraga/FEUPbook
 ```
 
 In order to run it on a development environment we are using [XAMPP](https://www.apachefriends.org/index.html).
