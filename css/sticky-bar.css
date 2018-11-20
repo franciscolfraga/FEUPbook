@@ -1,0 +1,72 @@
+.bar-container {
+  width: 100%;
+  height: 5%;
+  position: sticky;
+  background-color: #8c2d19;
+}
+
+.sticky-bar {
+  position: relative;
+  width: 60%;
+  height: 100% !important;
+  max-height: 100%;
+  margin: auto;
+  table-layout: fixed;
+  text-align: center;
+  font-size: 13px;
+  border: 0px;
+}
+
+.sticky-bar td {
+  position: relative;
+  height: 100%;
+}
+
+.sticky-bar a {
+  text-decoration: none;
+}
+
+.sticky-bar a:link {
+  color: white;
+}
+
+/* visited link */
+.sticky-bar a:visited {
+  color: white;
+}
+
+.sticky-bar img {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: 140%;
+  border-radius: 50%;
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#user-col {
+  width: 20% !important;
+  padding: 0%;
+  border-spacing: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+tr {
+  height: 100%;
+  border-spacing: 0px;
+}
+
+#img-col {
+  width: 40% !important;
+  height: 100%;
+}
+
+#user-table {
+  table-layout: fixed;
+  height: 100%;
+}

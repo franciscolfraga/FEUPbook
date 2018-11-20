@@ -8,12 +8,12 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="css/index.css">
+   <link rel="icon" href="img/logo.png">
   </head>
   <body>
     <?php if (isset($_SESSION['email'])) { ?>
       <div id="session">
-        <h3>You are currently logged in!</h3>
-        <a href="/actions/logout.php">Logout</a>
+        <?php include ('views/sticky-bar.php'); ?>
       </div>
     <?php } else { ?>
       <div class="authentication-form">
@@ -30,5 +30,6 @@
   </body>
   <head>
     <script type="text/javascript" src="js/form-handler.js"></script>
+    <script type="text/javascript" src="js/notification-transition.js"></script>
   </head>
 </html>

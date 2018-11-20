@@ -85,23 +85,22 @@ input:checked+.slider:before {
   margin: auto;
   text-align: center;
   width: 30%;
-  height: 50%;
+  height: 40%;
 }
 
 .authentication-form form {
+  margin-top: 30%;
   width: 100%;
+  border: solid black 2px;
+  border-radius: 3px;
 }
 
 .authentication-form {
   width: 30%;
   position: relative;
-  border: black solid 2px;
-  border-radius: 5px;
-  margin-top: 2%;
 }
 
 .authentication-form td {
-  border: solid transparent 1px;
   margin: 10%;
   padding-top: 5%;
   padding-bottom: 5%;

@@ -17,8 +17,10 @@
     die(header('Location: ../index.php'));
   }
   try {
-    createUser($name, $email, $password);
-    $_SESSION['success_message'] = 'User registered with success!';
+    if( createUser($name, $email, $password))
+      $_SESSION['success_message'] = 'User registered with success!';
+    else
+      $_SESSION['error_message'] = 'Users cannot be registered right now!';
   } catch (PDOException $e) {
 
     if (strpos($e->getMessage(), 'user_email_key') !== false){

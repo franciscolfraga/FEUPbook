@@ -1,5 +1,5 @@
 <form method="post" action="/actions/login.php" id="login" style="display: block;">
-  <h2>Login Panel</h2>
+  <h2>Please sign in...</h2>
   <table>
     <tr>
       <td class="description">Email:</td>

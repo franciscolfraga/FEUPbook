@@ -1,5 +1,5 @@
 <form method="post" action="/actions/register.php" id="register" style="display: none;">
-  <h2>Register Panel</h2>
+  <h2>Please sign up...</h2>
   <table>
     <tr>
       <td class="description">Name:</td>
