@@ -20,17 +20,24 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
 **Task list:**
 
   - [X] Authentication.
-  - [ ] Password recovering.
   - [ ] User profile design.
   - [ ] Workspace and feed design.
-  - [ ] Automatic FEUP news display on feed.
+  - [ ] Settings page design.
   - [ ] Algorithm to define and evaluate affinity levels between profiles.
   - [ ] Notifications.
   - [ ] Chat.
+  - [ ] Groups creation and management.
+  - [ ] Automatic FEUP news display on feed.
   - [ ] Feed, chat and notifications asynchronous refresh.
   - [ ] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
-  - [ ] Groups creation and management.
+  - [ ] Password recovering.
   - [ ] Administrator users that can edit or delete any inserted post.
+
+## Assignments
+
+Francisco Fraga - User profile; Algorithm to define and evaluate affinity levels between profile; Settings Design;
+
+Miguel Cardoso - Workspace and Feed design; Chat; Notifications;
 
 ## Built With
 
