@@ -22,8 +22,7 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
   - [X] Authentication.
   - [ ] Password recovering.
   - [ ] User profile design.
-  - [ ] Workspace design.
-  - [ ] Feed design.
+  - [ ] Workspace and feed design.
   - [ ] Automatic FEUP news display on feed.
   - [ ] Algorithm to define and evaluate affinity levels between profiles.
   - [ ] Notifications.
