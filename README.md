@@ -4,7 +4,7 @@ This project is being developed regarding the Information Systems and Databases 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 In order to clone the project:
 ```
@@ -17,7 +17,7 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
 
 ## Deployment
 
-Task list:
+**Task list:**
 
   - [X] Authentication.
   - [ ] Password recovering.
