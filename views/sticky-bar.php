@@ -4,30 +4,29 @@
 <div class="bar-container">
   <table class="sticky-bar">
     <tr>
-      <td id="user-col">
-        <a href="#">
-          <table id="user-table">
-            <tr>
-              <td id="img-col"><img src="img/user.png"></td>
-              <td><?php echo $_SESSION['name'] ?></td>
-            </tr>
-          </table>
-        </a>
+      <td id="img-col">
+        <img id="profile-pic" src="img/user.png">
+      </td>
+      <td id="name-col">
+        <?php echo $_SESSION['name'] ?>
+      </td>
+      </td>
+      <td id="search-col">
+        <form method="post" action="#" id="search-bar">
+          <input type="text" name="search" placeholder="Search">
+        </form>
       </td>
       <td>
-        <a href="#">Profile</a>
+        <a href="#"><img src="img/icons/groups.png"></a>
       </td>
       <td>
-        <a href="#">Groups</a>
+        <a href="#"><img src="img/icons/messages.png"></a>
       </td>
       <td>
-        <a href="#">Messages</a>
+        <a href="#"><img src="img/icons/settings.png"></a>
       </td>
       <td>
-        <a href="#">Settings</a>
-      </td>
-      <td>
-        <a href="/actions/logout.php">Logout</a>
+        <a href="/actions/logout.php"><img src="img/icons/logout.png"></a>
       </td>
     </tr>
   </table>

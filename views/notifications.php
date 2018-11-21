@@ -12,7 +12,6 @@
       </table>
     </div>
     <?php }?>
-
     <?php if (isset($_SUCCESS_MESSAGE)) { ?>
     <div id="success" class="notifications">
       <table>
@@ -23,7 +22,6 @@
       </table>
     </div>
     <?php }?>
-
     <?php if (isset($_DB_ERROR)) { ?>
     <div id="db-error-container" class="notifications">
       <div id="db-error" class="notifications">

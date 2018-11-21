@@ -39,21 +39,41 @@
   position: absolute;
   display: block;
   width: auto;
-  height: 140%;
-  border-radius: 50%;
-  background-color: white;
+  height: 50%;
+  background-color: none;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 
-#user-col {
-  width: 20% !important;
+.sticky-bar td {
+  height: 100% !important;
+  min-height: 100%;
+}
+
+.sticky-bar form {
+  display: block;
+  height: 100% !important;
+  min-height: 100%;
+  width: 100%;
+}
+
+.sticky-bar form input {
+  position: absolute;
+  height: 60% !important;
+  width: 90%;
   padding: 0%;
-  border-spacing: 0px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#profile-pic {
+  background-color: white;
+  height: 80%;
+  border-radius: 50%;
 }
 
 tr {
@@ -62,11 +82,19 @@ tr {
 }
 
 #img-col {
-  width: 40% !important;
-  height: 100%;
+  width: 5% !important;
+  max-width: 5% !important;
+  cursor: pointer;
 }
 
-#user-table {
-  table-layout: fixed;
-  height: 100%;
+#name-col {
+  width: 12.5% !important;
+  max-width: 12.5% !important;
+  text-align: left;
+  cursor: pointer;
+}
+
+#search-col {
+  width: 40% !important;
+  max-width: 40% !important;
 }

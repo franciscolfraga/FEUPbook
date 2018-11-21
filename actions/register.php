@@ -20,7 +20,7 @@
     if( createUser($name, $email, $password))
       $_SESSION['success_message'] = 'User registered with success!';
     else
-      $_SESSION['error_message'] = 'Users cannot be registered right now!';
+      $_SESSION['error_message'] = 'Failed to register!';
   } catch (PDOException $e) {
 
     if (strpos($e->getMessage(), 'user_email_key') !== false){
@@ -31,7 +31,6 @@
     }
 
     $_SESSION['form_values'] = $_POST;
-    die(header('Location: ../index.php'));
   }
 
   header('Location: ../index.php');

@@ -10,7 +10,7 @@
       $hash = password_hash ($password , PASSWORD_DEFAULT, $options);
 
       $stmt = $conn->prepare('INSERT INTO users (name, email, password) VALUES (?, ?, ?)');
-      $stmt->execute(array($name, $email, $hash));
+      return $stmt->execute(array($name, $email, $hash));
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;
     }
@@ -24,7 +24,7 @@
       $stmt->execute(array($email));
 
       $mail = $stmt->fetch();
-      
+
       $_SESSION['name'] = $mail['name'];
 
       return $mail !== false && password_verify($password, $mail['password']);
