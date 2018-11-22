@@ -6,7 +6,7 @@
     <div id="errors" class="notifications">
       <table>
         <tr>
-          <td class="image"><img src="img/errors/wrong.png" id="no-db-img"></td>
+          <td class="image"><img src="media/errors/wrong.png" id="no-db-img"></td>
           <td class="text"><?=$_ERROR_MESSAGE?></td>
         </tr>
       </table>
@@ -16,7 +16,7 @@
     <div id="success" class="notifications">
       <table>
         <tr>
-          <td class="image"><img src="img/errors/check-mark.png" id="no-db-img"></td>
+          <td class="image"><img src="media/errors/check-mark.png" id="no-db-img"></td>
           <td class="text"><?=$_SUCCESS_MESSAGE?></td>
         </tr>
       </table>
@@ -27,7 +27,7 @@
       <div id="db-error" class="notifications">
         <table>
           <tr>
-            <td class="image"><img src="img/errors/wifi-notification.png" id="no-db-img"></td>
+            <td class="image"><img src="media/errors/wifi-notification.png" id="no-db-img"></td>
             <td class="text">You're having trouble connecting to our DB...</td>
           </tr>
         </table>

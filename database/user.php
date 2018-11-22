@@ -16,6 +16,21 @@
     }
   }
 
+  function getUser($id) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT * FROM users WHERE id = ?');
+      $stmt->execute(array($id));
+
+      return $stmt->fetch();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
   function isValidUser($email, $password) {
     try {
       global $conn;
@@ -26,7 +41,8 @@
       $mail = $stmt->fetch();
 
       $_SESSION['name'] = $mail['name'];
-
+      $_SESSION['id'] = $mail['id'];
+      $_SESSION['profilepic'] = $mail['profilepic'];
       return $mail !== false && password_verify($password, $mail['password']);
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;

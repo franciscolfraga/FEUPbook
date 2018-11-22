@@ -1,16 +1,3 @@
-html {
-  height: 100%;
-}
-
-body {
-  position: fixed;
-  font-family: 'Lato', sans-serif;
-  top: 0%;
-  height: 100% !important;
-  margin: 0px;
-  width: 100%;
-}
-
 .switch {
   position: relative;
   display: inline-block;
@@ -77,27 +64,28 @@ input:checked+.slider:before {
   height: 100%;
 }
 
-#session {
-  height: 100%;
-}
-
 .authentication-form, form {
   margin: auto;
   text-align: center;
   width: 30%;
-  height: 40%;
+  height: 50%;
 }
 
 .authentication-form form {
   margin-top: 30%;
   width: 100%;
-  border: solid black 2px;
-  border-radius: 3px;
 }
 
 .authentication-form {
   width: 30%;
   position: relative;
+  background-color: white;
+}
+
+.authentication-form h2 {
+  position: relative;
+  display: block;
+  padding-top: 5%;
 }
 
 .authentication-form td {

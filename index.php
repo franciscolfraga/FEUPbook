@@ -7,19 +7,20 @@
    <title>FEUPbook</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="css/skeleton.css">
    <link rel="stylesheet" type="text/css" href="css/index.css">
-   <link rel="icon" href="img/logo.png">
+   <link rel="icon" href="media/logo.png">
   </head>
   <body>
     <?php if (isset($_SESSION['email'])) { ?>
       <div id="session">
-        <?php include ('views/sticky-bar.php'); ?>
+        <?php include ('views/session.php'); ?>
       </div>
     <?php } else { ?>
-      <div class="authentication-form">
+      <div class="authentication-form card">
         <?php
-        include ('views/login.php');
-        include ('views/register.php'); ?>
+        include ('cards/login.php');
+        include ('cards/register.php'); ?>
         <label class="switch" id="trigger">
           <input type="checkbox" onclick="formChange()">
           <span class="slider round"></span>

@@ -81,17 +81,25 @@ tr {
   border-spacing: 0px;
 }
 
+#feed {
+  height: 100%;
+}
+
+#feed-col {
+  width: 12% !important;
+  max-width: 12% !important;
+}
+
 #img-col {
   width: 5% !important;
   max-width: 5% !important;
-  cursor: pointer;
 }
 
 #name-col {
   width: 12.5% !important;
   max-width: 12.5% !important;
   text-align: left;
-  cursor: pointer;
+  color: white;
 }
 
 #search-col {
