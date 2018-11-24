@@ -31,6 +31,21 @@
     }
   }
 
+  function getProgram($userid) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT program.name AS name , program.logo AS logo FROM program JOIN users ON users.programid = program.id WHERE users.id = ?');
+      $stmt->execute(array($userid));
+
+      return $stmt->fetch();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
   function isValidUser($email, $password) {
     try {
       global $conn;

@@ -59,7 +59,7 @@
   width: 100%;
 }
 
-.sticky-bar form input {
+.sticky-bar form input[type=text] {
   position: absolute;
   height: 60% !important;
   width: 90%;
@@ -70,19 +70,36 @@
   transform: translate(-50%, -50%);
 }
 
-#profile-pic {
-  background-color: white;
-  height: 80%;
-  border-radius: 50%;
-}
-
 tr {
   height: 100%;
   border-spacing: 0px;
 }
 
-#feed {
+.sticky-bar form input[type=image] {
+  position: absolute;
   height: 100%;
+  width: auto;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#feed-pic {
+  height: 90%;
+  width: auto;
+}
+
+#profile-pic {
+  position: absolute;
+  width: auto;
+  height: 80%;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 #feed-col {

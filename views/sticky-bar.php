@@ -5,10 +5,10 @@
   <table class="sticky-bar">
     <tr>
       <td id="feed-col">
-        <a href="index.php"><img id="feed" src="media/icons/feed.png"></a>
+        <a href="../index.php"><img id="feed-pic" src="media/icons/feed.png"></a
       </td>
       <td id="img-col">
-        <a href="profile.php"><img id="profile-pic" src="<?php echo $_SESSION['profilepic']?>"></a>
+        <a href="../profile.php"><img id="profile-pic" src="<?php echo $_SESSION['profilepic']?>"></a>
       </td>
       <td id="name-col">
         <a href="profile.php"><?php echo $_SESSION['name']?></a>

@@ -8,13 +8,14 @@
   transform: translate(-50%, -50%);
 }
 
-#name {
-  position: absolute;
+#name h2 {
+  position: relative;
   color: black;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  top: 23%;
+}
+
+#name {
+  width: 100%;
+  height: auto;
 }
 
 #picture {
@@ -27,7 +28,6 @@
   transform: translateX(-50%);
   border-radius: 50%;
   border: 2px solid #353839;
-  background-color: white;
 }
 
 #cover {
@@ -41,5 +41,36 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 42.5%;
-  ;
+}
+
+.profile-table {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 23%;
+  text-align: center;
+  max-width: 60%;
+  width: 60%;
+}
+
+.profile-table img {
+  position: relative;
+  width: auto;
+  height: 5%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+#program-name {
+  height: auto;
+}
+
+#program-logo {
+  height: 100%;
+}
+
+.profile-table td {
+  position: relative;
+  min-height: 10%;
 }
