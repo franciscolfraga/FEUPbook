@@ -51,7 +51,7 @@
       global $conn;
       if( $conn === null) return false;
 
-      $stmt = $conn->prepare('SELECT program.name AS name , program.logo AS logo , department.name AS department FROM program JOIN users ON users.programid = program.id JOIN department ON program.depid = department.id WHERE users.id = ?');
+      $stmt = $conn->prepare('SELECT program.name AS name, program.initials AS initials, program.logo AS logo , department.name AS department FROM program JOIN users ON users.programid = program.id JOIN department ON program.depid = department.id WHERE users.id = ?');
       $stmt->execute(array($userid));
 
       return $stmt->fetch();

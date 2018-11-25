@@ -15,10 +15,13 @@
             <?php } ?>
           </td>
         </tr>
-        <?php if ($currentUser['programid']) {
+        <?php if ($currentUser['programid'] and $currentUser['entityid'] == 1) {
         $program = getProgram($id);?>
           <tr>
             <td><img id="program-logo" src="<?= $program['logo'] ?>"></td>
+          </tr>
+          <tr>
+            <td id="program-name"><?= $program['initials'] ?></td>
           </tr>
           <tr>
             <td id="program-name"><?= $program['name'] ?></td>

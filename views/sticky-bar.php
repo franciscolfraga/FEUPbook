@@ -26,7 +26,7 @@
         <a href="#"><img src="media/icons/messages.png"></a>
       </td>
       <td>
-        <a href="#"><img src="media/icons/settings.png"></a>
+        <a href="settings.php"><img src="media/icons/settings.png"></a>
       </td>
       <td>
         <a href="/actions/logout.php"><img src="media/icons/logout.png"></a>

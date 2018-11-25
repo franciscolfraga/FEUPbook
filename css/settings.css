@@ -1,0 +1,193 @@
+#settings {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  left: 50%;
+  top: 10%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+#settings h2 {
+  position: relative;
+  text-align: center;
+}
+
+#settings td {
+  margin: 10%;
+  padding-top: 7.5%;
+  padding-bottom: 7.5%;
+  overflow: hidden;
+  min-height: 100%;
+  text-align: left;
+}
+
+#settings tr {
+  border-top: 1px solid black;
+  position: relative;
+  padding: 3%;
+}
+
+#settings .description {
+  width: 30%;
+}
+
+#settings .edit {
+  width: 15% !important;
+  min-width: 15% !important;
+  height: 100%;
+}
+
+#settings .edit img {
+  padding: 3%;
+  position: relative;
+  height: 5%;
+  width: auto;
+  cursor: pointer;
+}
+
+#settings table {
+  margin: auto;
+  width: 55%;
+  border-collapse: collapse;
+  border-bottom: 1px solid black;
+}
+
+.settings-form {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(20, 20, 20, 0.8);
+  z-index: 2;
+}
+
+.settings-form select {
+  height: 100%;
+  width: 90%;
+  padding: 3%;
+  border: solid 1px black;
+}
+
+.settings-form .centered-form {
+  position: absolute;
+  width: 20%;
+  height: 30%;
+  min-height: 300px;
+  min-width: 400px;
+  left: 50%;
+  top: 30%;
+  background-color: white;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.settings-form form input[type=Submit] {
+  margin-top: 1%;
+  width: 25%;
+  padding: 2.5%;
+  box-sizing: border-box;
+  -webkit-transition: .4s;
+  transition: .4s;
+  background-color: #ccc;
+  color: white;
+  border: solid transparent 1px;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+.settings-form form input[type=text], input[type=password], input[type=email] {
+  padding: 3%;
+  border: solid 1px black;
+  width: 90% !important;
+}
+
+.settings-form input[type=Submit]:hover {
+  background-color: #8c2d19;
+  color: white;
+}
+
+.settings-form td {
+  margin: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  overflow: hidden;
+  min-height: 100%;
+  text-align: left;
+}
+
+.settings-form .my-button {
+  text-align: center;
+}
+
+.settings-form tr {
+  position: relative;
+  padding: 1%;
+}
+
+.settings-form .description {
+  width: 25%;
+}
+
+.settings-form table {
+  margin: auto;
+  margin-top: 15%;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.settings-form .leave {
+  position: absolute;
+  left: 92.5%;
+  top: 5%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  width: 7.5% !important;
+  height: auto;
+  cursor: pointer;
+}
+
+#upload-photo input[type=file] {
+  text-align: center;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border: 1px solid black;
+  padding: 2%;
+}
+
+#upload-photo input[type=Submit] {
+  margin-top: 1%;
+  width: 20%;
+  padding: 1.5%;
+  box-sizing: border-box;
+  -webkit-transition: .4s;
+  transition: .4s;
+  background-color: #ccc;
+  color: white;
+  border: solid transparent 1px;
+  cursor: pointer;
+  margin-bottom: 5%;
+}
+
+#upload-photo input[type=Submit]:hover {
+  background-color: #8c2d19;
+  color: white;
+}
+
+#upload-photo {
+  text-align: center;
+  padding-top: 5%;
+}
+
+#photo-section {
+  margin: auto;
+  text-align: center;
+  width: 55%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+#photo-section img {
+  width: 10%;
+  margin: auto;
+  cursor: pointer;
+}
