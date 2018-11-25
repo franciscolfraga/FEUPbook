@@ -20,9 +20,10 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
 **Task list:**
 
   - [X] Authentication.
-  - [ ] User profile design.
+  - [X] User profile design.
   - [ ] Workspace and feed design.
-  - [ ] Settings page design.
+  - [X] Settings page design.
+  - [ ] Settings page backend.
   - [ ] Algorithm to define and evaluate affinity levels between profiles.
   - [ ] Notifications.
   - [ ] Chat.
@@ -39,6 +40,7 @@ Francisco Fraga:
 * User profile
 * Algorithm to define and evaluate affinity levels between profiles. 
 * Settings Design.
+* Settings page backend.
 
 Miguel Cardoso: 
 * Workspace and Feed design. 
