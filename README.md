@@ -35,9 +35,15 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
 
 ## Assignments
 
-Francisco Fraga - User profile; Algorithm to define and evaluate affinity levels between profile; Settings Design;
+Francisco Fraga: 
+* User profile
+* Algorithm to define and evaluate affinity levels between profiles. 
+* Settings Design.
 
-Miguel Cardoso - Workspace and Feed design; Chat; Notifications;
+Miguel Cardoso: 
+* Workspace and Feed design. 
+* Chat.
+* Notifications.
 
 ## Built With
 
