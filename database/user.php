@@ -60,6 +60,20 @@
       $_SESSION['db_error'] = $ex;
     }
   }
+  function getDepartment($userid) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT department.name AS name FROM users JOIN department ON users.depid = department.id WHERE users.id = ?');
+      $stmt->execute(array($userid));
+
+      return $stmt->fetch();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
 
   function isValidUser($email, $password) {
     try {
@@ -73,6 +87,12 @@
       $_SESSION['name'] = $mail['name'];
       $_SESSION['id'] = $mail['id'];
       $_SESSION['profilepic'] = $mail['profilepic'];
+      if($mail['entityid'] != NULL)
+        $_SESSION['entityid'] = $mail['entityid'];
+      if($mail['depid'] != NULL)
+        $_SESSION['depid'] = $mail['depid'];
+      if($mail['programid'] != NULL)
+        $_SESSION['profilepic'] = $mail['profilepic'];
       return $mail !== false && password_verify($password, $mail['password']);
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;

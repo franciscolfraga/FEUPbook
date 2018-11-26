@@ -5,7 +5,8 @@ CREATE TABLE "users" (
   password varchar NOT NULL,
   programid integer,
   profilepic varchar DEFAULT 'media/profile-pics/default.png',
-  entityid integer
+  entityid integer,
+  depid integer
 );
 
 CREATE TABLE "program" (

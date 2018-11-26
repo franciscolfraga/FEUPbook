@@ -30,6 +30,15 @@
             <td id="program-dep"><?= $program['department'] ?></td>
           </tr>
         <?php } ?>
+        <?php if ($currentUser['depid'] and $currentUser['entityid'] > 1) {
+        $dep = getDepartment($id);?>
+          <tr>
+            <td><img id="dep-logo" src="media/icons/department.png"></td>
+          </tr>
+          <tr>
+            <td id="dep-name"><?= $dep['name'] ?></td>
+          </tr>
+        <?php } ?>
         <tr>
           <td><img id="email-logo" src="media/icons/email.png"></td>
         </tr>

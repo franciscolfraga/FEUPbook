@@ -4,6 +4,7 @@ const emailForm = document.getElementById("email-div");
 const passwordForm = document.getElementById("password-div");
 const entityForm = document.getElementById("entity-div");
 const programForm = document.getElementById("program-div");
+const departmentForm = document.getElementById("department-div");
 const photoForm = document.getElementById("upload-photo");
 
 function settingsNameHandler() {
@@ -36,6 +37,11 @@ function settingsPhotoHandler() {
     photoForm.style.display = "block";
 };
 
+function settingsDepartmentHandler() {
+    div.style.display = "block";
+    departmentForm.style.display = "block";
+};
+
 
 function leaveHandler() {
     div.style.display = "none";
@@ -45,4 +51,5 @@ function leaveHandler() {
     entityForm.style.display = "none";
     programForm.style.display = "none";
     photoForm.style.display = "none";
+    departmentForm.style.display = "none";
 };

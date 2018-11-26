@@ -1,7 +1,8 @@
 <?php $myentity = getEntities();
-$myprogram = getPrograms();?>
+$myprogram = getPrograms();
+$mydepartment = getDepartments();?>
 <div class="settings-form" id="settings-div" style="display: none;">
-  <form class="centered-form" id="name-div" method="post" action="#" style="display: none;">
+  <form class="centered-form" id="name-div" method="post" action="actions/edit/name.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <table>
       <tr>
@@ -15,7 +16,7 @@ $myprogram = getPrograms();?>
       </tr>
   </table>
   </form>
-  <form class="centered-form" id="email-div" method="post" action="#" style="display: none;">
+  <form class="centered-form" id="email-div" method="post" action="actions/edit/email.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <table>
       <tr>
@@ -29,7 +30,7 @@ $myprogram = getPrograms();?>
       </tr>
   </table>
   </form>
-  <form class="centered-form" id="password-div" method="post" action="#" style="display: none;">
+  <form class="centered-form" id="password-div" method="post" action="actions/edit/password.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <table>
       <tr>
@@ -47,7 +48,7 @@ $myprogram = getPrograms();?>
       </tr>
   </table>
   </form>
-  <form class="centered-form" id="entity-div" method="post" action="#" style="display: none;">
+  <form class="centered-form" id="entity-div" method="post" action="actions/edit/entity.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <table>
       <tr>
@@ -70,7 +71,7 @@ $myprogram = getPrograms();?>
       </tr>
   </table>
   </form>
-  <form class="centered-form" id="program-div" method="post" action="#" style="display: none;">
+  <form class="centered-form" id="program-div" method="post" action="actions/edit/program.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <table>
       <tr>
@@ -93,9 +94,32 @@ $myprogram = getPrograms();?>
       </tr>
   </table>
   </form>
-  <form class="centered-form" id="upload-photo" enctype="multipart/form-data" method="post" action="#" style="display: none;">
+  <form class="centered-form" id="department-div" method="post" action="actions/edit/department.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
-    <input type="hidden" name="prod_id" value="<?=$prod_id?>">
+    <table>
+      <tr>
+        <td class="description">Department:</td>
+        <td>
+          <select name="departments">
+            <?php foreach ($mydepartment as $value) {
+              if($value['id'] == $currentUser['depid']) {?>
+                <option value="<?= $value['name'] ?>" selected><?= $value['name'] ?></option>
+            <?php } else{ ?>
+                <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
+            <?php } } ?>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="my-button"><label>
+          <input type="submit" value="Submit">
+        </label></td>
+      </tr>
+  </table>
+  </form>
+  <form class="centered-form" id="upload-photo" enctype="multipart/form-data" method="post" action="actions/edit/profilepic.php" style="display: none;">
+    <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
+    <input type="hidden" name="prod_id" value="<?=$img_name?>">
     <label> Upload profile picture: <br>
       <input type="file" name="photo">
     </label>
