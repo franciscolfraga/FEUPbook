@@ -1,4 +1,4 @@
-# FEUPbook
+﻿# FEUPbook
 
 This project is being developed regarding the Information Systems and Databases course of MIEEC @ FEUP. It aims to produce an internal social network designed to connect students, professors and researchers based on their level of connectivity in the FEUP environment.
 
@@ -23,7 +23,7 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
   - [X] User profile design.
   - [ ] Workspace and feed design.
   - [X] Settings page design.
-  - [ ] Settings page backend.
+  - [X] Settings page backend.
   - [ ] Algorithm to define and evaluate affinity levels between profiles.
   - [ ] Notifications.
   - [ ] Chat.
