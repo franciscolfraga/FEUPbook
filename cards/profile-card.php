@@ -1,6 +1,5 @@
-<?php
-  include ('database/user.php');
-  function profileCard($id){
+<?php include ('database/user.php'); ?>
+<?php function profileCard($id){
     $currentUser = getUser($id);
     if ($currentUser) { ?>
       <div id="cover"></div>

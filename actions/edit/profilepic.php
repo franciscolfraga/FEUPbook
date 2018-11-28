@@ -11,10 +11,12 @@
   if (profilepicEdit($filePath, $_SESSION['id'])) {
     move_uploaded_file($tmp_name, "../../media/profile-pics/$fileName.png");
     // Delete his last pic
-    $old = getcwd(); // Save the current directory
-    chdir("../../");
-    unlink($_SESSION['profilepic']);
-    chdir($old); // Restore the old working directory
+    if($_SESSION['profilepic'] != 'media/profile-pics/default.png'){
+      $old = getcwd(); // Save the current directory
+      chdir("../../");
+      unlink($_SESSION['profilepic']);
+      chdir($old); // Restore the old working directory
+    }
     $_SESSION['profilepic'] = $filePath;
     $_SESSION['success_message'] = "Profile picture uploaded successfully!";
   } else {

@@ -3,10 +3,10 @@ CREATE TABLE "users" (
   name varchar NOT NULL,
   email varchar NOT NULL UNIQUE,
   password varchar NOT NULL,
-  programid integer,
+  programid integer REFERENCES program,
   profilepic varchar DEFAULT 'media/profile-pics/default.png',
-  entityid integer,
-  depid integer
+  entityid integer REFERENCES entity,
+  depid integer REFERENCES department
 );
 
 CREATE TABLE "program" (
