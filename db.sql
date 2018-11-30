@@ -14,7 +14,7 @@ CREATE TABLE "program" (
   name varchar NOT NULL,
   initials varchar NOT NULL,
   logo varchar NOT NULL,
-  depid integer NOT NULL
+  depid integer REFERENCES department
 );
 
 INSERT INTO program  VALUES  (1,'Master in Bioengineering','MIB','media/icons/mib.png', 1);

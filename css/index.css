@@ -114,7 +114,7 @@ input:checked+.slider:before {
 .authentication-form form input[type=Submit] {
   margin-top: 5%;
   width: 20%;
-  height: 8%;
+  height: 3.8vh;
   box-sizing: border-box;
   -webkit-transition: .4s;
   transition: .4s;

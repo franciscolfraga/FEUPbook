@@ -58,7 +58,7 @@
   height: 100%;
   width: 100%;
   background-color: rgba(20, 20, 20, 0.8);
-  z-index: 2;
+  z-index: 1;
 }
 
 .settings-form select {
