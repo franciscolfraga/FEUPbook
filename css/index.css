@@ -128,3 +128,15 @@ input:checked+.slider:before {
   background-color: #8c2d19;
   color: white;
 }
+
+#feed {
+  position: absolute;
+  top: 6vh;
+  text-align: justify;
+  left: 50%;
+  width: 40%;
+  min-height: 10%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-bottom: 5%;
+}

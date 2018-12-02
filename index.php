@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="pt" dir="ltr">
   <?php
   include ('config/init.php');
   ?>
@@ -13,6 +13,7 @@
    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
    <link rel="stylesheet" type="text/css" href="css/index.css">
    <link rel="icon" href="media/logo.png">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <!--If a session variable is set it will display a logged in user, it
@@ -45,6 +46,10 @@
   <head>
     <!--javascript file with the purpose of forms orchestration.-->
     <script type="text/javascript" src="js/form-handler.js"></script>
+
+    <!--javascript file with the purpose of scroll orchestration-->
+    <script type="text/javascript" src="js/news-handler.js"></script>
+
 
     <!--javascript file that will close a notification when you click on it.-->
     <script type="text/javascript" src="js/notification-transition.js"></script>

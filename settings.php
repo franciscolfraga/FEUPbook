@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="pt" dir="ltr">
   <?php
   include ('config/init.php');
   include ('cards/settings-card.php');

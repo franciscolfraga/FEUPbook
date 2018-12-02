@@ -22,7 +22,7 @@
 }
 
 .notifications-area {
-  position: absolute;
+  position: fixed;
   width: 20% !important;
   height: 100% !important;
   bottom: 0%;
