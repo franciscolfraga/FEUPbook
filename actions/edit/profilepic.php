@@ -5,7 +5,7 @@
   $img_name = $_POST['img_name'];
   $tmp_name = $_FILES['photo']['tmp_name'];
 
-  $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 8);
+  $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16);
   $filePath = "media/profile-pics/$fileName.png";
 
   if (profilepicEdit($filePath, $_SESSION['id'])) {
