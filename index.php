@@ -2,11 +2,12 @@
 <html lang="pt" dir="ltr">
   <?php
   include ('config/init.php');
+  header ('Content-type: text/html; charset=ISO-8859-15');
   ?>
   <head>
    <title>FEUPbook</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta http-equiv="Content-Type" content="text/html; charset=cp1252">
+   <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-15">
    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
    <!--skeleton.css was created with the idea of having the common css code
       for all FEUPbook .php files, in this way we avoid code repeating. Whereas

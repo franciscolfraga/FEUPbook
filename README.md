@@ -28,7 +28,7 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
   - [ ] Notifications.
   - [ ] Chat.
   - [ ] Groups creation and management.
-  - [ ] Automatic FEUP news display on feed.
+  - [X] Automatic FEUP news display on feed.
   - [ ] Feed, chat and notifications asynchronous refresh.
   - [ ] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
   - [ ] Password recovering.
@@ -41,6 +41,7 @@ Francisco Fraga:
 * Algorithm to define and evaluate affinity levels between profiles. 
 * Settings Design.
 * Settings page backend.
+* Automatic FEUP news display on feed.
 
 Miguel Cardoso: 
 * Workspace and Feed design. 
