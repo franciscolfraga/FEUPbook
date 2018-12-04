@@ -24,6 +24,9 @@
           <input type="text" name="search" placeholder="Search">
         </form>
       </td>
+      <td>
+        <a href="../news.php"><img src="media/icons/news.png"></a>
+      </td>
       <!--Sticky-bar anchor to the groups section. Not functional yet.-->
       <td>
         <a href="#"><img src="media/icons/groups.png"></a>

@@ -78,6 +78,7 @@ input:checked+.slider:before {
 
 .authentication-form {
   width: 30%;
+  height: 47.5vh;
   position: relative;
   background-color: white;
 }
@@ -127,16 +128,4 @@ input:checked+.slider:before {
 .authentication-form form input[type=Submit]:hover {
   background-color: #8c2d19;
   color: white;
-}
-
-#feed {
-  position: absolute;
-  top: 6vh;
-  text-align: justify;
-  left: 50%;
-  width: 40%;
-  min-height: 10%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-bottom: 5%;
 }

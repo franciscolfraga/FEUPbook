@@ -7,19 +7,15 @@ function load_news($start){
       if( $i >= $start){?>
       <div class="card news" id="news-<?= $i ?>">
         <div class="news-container">
-      <?php
+              <?php
                 $url = $news->link['href'];
                 $content = file_get_contents($url);
                 $first_step = explode( '<div id="conteudoinner">' , $content );
                 $second_step = explode("</div>" , $first_step[1] );
-                #$string = preg_replace_callback("/src=[\'\"](.*?)[\'\"]/", "urlHandler", $second_step[0]);
                 $string = str_replace('<img src="', '<img src="https://sigarra.up.pt/feup/pt/', $second_step[0]);
+                $string = $string . '<p> <a target="_blank" rel="noopener noreferrer" href="'.$news->link['href'] .'">Click here for original.</a>';
                 echo $string;
-
-                #https://sigarra.up.pt/feup/pt/noticias_geral.noticias_cont?p_id=F1046967137/Convite%20Lan%C3%A7amento%20do%20livro%20Eletr%C3%B3nica.jpg
-
-                #https://sigarra.up.pt/feup/pt/noticias_geral.noticias_cont?p_id=F1046967137/Convite%20Lan%E7amento%20do%20livro%20Eletr%F3nica.jpg
-      ?>
+              ?>
           </div>
         </div>
       </div>
@@ -31,14 +27,6 @@ function load_news($start){
     die(header('Location: ../index.php'));
   }
 }
-
-
-  function urlHandler($matches) {
-    $srcUrl = $matches[1];
-    return "src='" .  rawurlencode($srcUrl) . "'";
-  }
-
-
 
 if (isset($_POST['start'])) {
         echo load_news($_POST['start']);
