@@ -1,4 +1,4 @@
-<?php $myentity = getEntities();
+<?php $mymembertype = getMemberTypes();
 $myprogram = getPrograms();
 $mydepartment = getDepartments();?>
 <div class="settings-form" id="settings-div" style="display: none;">
@@ -48,15 +48,15 @@ $mydepartment = getDepartments();?>
       </tr>
   </table>
   </form>
-  <form class="centered-form" id="entity-div" method="post" action="actions/edit/entity.php" style="display: none;">
+  <form class="centered-form" id="membertype-div" method="post" action="actions/edit/membertype.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <table>
       <tr>
-        <td class="description">Entity:</td>
+        <td class="description">MemberType:</td>
         <td>
-          <select name="entities">
-            <?php foreach ($myentity as $value) {
-              if($value['id'] == $currentUser['entityid']) {?>
+          <select name="membertypes">
+            <?php foreach ($mymembertype as $value) {
+              if($value['id'] == $currentMember['membertypeid']) {?>
                 <option value="<?= $value['name'] ?>" selected><?= $value['name'] ?></option>
             <?php } else{ ?>
                 <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
@@ -79,7 +79,7 @@ $mydepartment = getDepartments();?>
         <td>
           <select name="programs">
             <?php foreach ($myprogram as $value) {
-              if($value['id'] == $currentUser['programid']) {?>
+              if($value['id'] == $currentMember['programid']) {?>
                 <option value="<?= $value['name'] ?>" selected><?= $value['name'] ?></option>
             <?php } else{ ?>
                 <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
@@ -102,7 +102,7 @@ $mydepartment = getDepartments();?>
         <td>
           <select name="departments">
             <?php foreach ($mydepartment as $value) {
-              if($value['id'] == $currentUser['depid']) {?>
+              if($value['id'] == $currentMember['depid']) {?>
                 <option value="<?= $value['name'] ?>" selected><?= $value['name'] ?></option>
             <?php } else{ ?>
                 <option value="<?= $value['name'] ?>"><?= $value['name'] ?></option>
@@ -119,7 +119,7 @@ $mydepartment = getDepartments();?>
   </form>
   <form class="centered-form" id="upload-photo" enctype="multipart/form-data" method="post" action="actions/edit/profilepic.php" style="display: none;">
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
-    <input type="hidden" name="prod_id" value="<?=$img_name?>">
+    <input type="hidden" name="img_name" value="<?= $img_name ?>">
     <label> Upload profile picture: <br>
       <input type="file" name="photo">
     </label>

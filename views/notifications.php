@@ -28,7 +28,7 @@
         <table>
           <tr>
             <td class="image"><img src="media/errors/wifi-notification.png" id="no-db-img"></td>
-            <td class="text">You're having trouble connecting to our DB...</td>
+            <td class="text"><?=$_DB_ERROR?></td>
           </tr>
         </table>
       </div>

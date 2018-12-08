@@ -15,12 +15,19 @@ In order to run it on a development environment we are using [XAMPP](https://www
 
 You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after installation and start the live server.
 
+The following lines in XAMPP's php.ini should be uncommented or added: extension=php_pdo_pgsql.dll; default_charset = "iso-8859-15".
+
+## Database Design
+
+The database design is available in 2 pdf documents placed at the root of the repository. The sql script that implements the database is available at the same location.
+
 ## Deployment
 
 **Task list:**
 
   - [X] Authentication.
-  - [X] User profile design.
+  - [X] Member profile design.
+  - [X] Database design and implementation.
   - [ ] Workspace and feed design.
   - [X] Settings page design.
   - [X] Settings page backend.
@@ -32,21 +39,22 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
   - [ ] Feed, chat and notifications asynchronous refresh.
   - [ ] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
   - [ ] Password recovering.
-  - [ ] Administrator users that can edit or delete any inserted post.
+  - [ ] Administrator members that can edit or delete any inserted post.
 
 ## Assignments
 
-Francisco Fraga: 
-* User profile
-* Algorithm to define and evaluate affinity levels between profiles. 
+Francisco Fraga:
+* Member profile
+* Algorithm to define and evaluate affinity levels between profiles.
 * Settings Design.
 * Settings page backend.
 * Automatic FEUP news display on feed.
 
-Miguel Cardoso: 
-* Workspace and Feed design. 
+Miguel Cardoso:
+* Workspace and Feed design.
 * Chat.
 * Notifications.
+* Database design and implementation.
 
 ## Built With
 

@@ -17,7 +17,7 @@
    <link rel="icon" href="media/logo.png">
   </head>
   <body>
-    <!--If a session variable is set it will display a logged in user, it
+    <!--If a session variable is set it will display a logged in member, it
         includes a session.php file where all the necessary .php and .css
         files are included in order to create a session environment.-->
     <?php if (isset($_SESSION['email'])) { ?>

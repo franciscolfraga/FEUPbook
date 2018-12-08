@@ -2,7 +2,7 @@ const div = document.getElementById("settings-div");
 const nameForm = document.getElementById("name-div");
 const emailForm = document.getElementById("email-div");
 const passwordForm = document.getElementById("password-div");
-const entityForm = document.getElementById("entity-div");
+const membertypeForm = document.getElementById("membertype-div");
 const programForm = document.getElementById("program-div");
 const departmentForm = document.getElementById("department-div");
 const photoForm = document.getElementById("upload-photo");
@@ -22,9 +22,9 @@ function settingsPasswordHandler() {
     passwordForm.style.display = "block";
 };
 
-function settingsEntityHandler() {
+function settingsMemberTypeHandler() {
     div.style.display = "block";
-    entityForm.style.display = "block";
+    membertypeForm.style.display = "block";
 };
 
 function settingsProgramHandler() {
@@ -48,7 +48,7 @@ function leaveHandler() {
     nameForm.style.display = "none";
     emailForm.style.display = "none";
     passwordForm.style.display = "none";
-    entityForm.style.display = "none";
+    membertypeForm.style.display = "none";
     programForm.style.display = "none";
     photoForm.style.display = "none";
     departmentForm.style.display = "none";

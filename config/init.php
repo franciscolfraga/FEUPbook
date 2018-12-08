@@ -27,7 +27,7 @@
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $conn->query("SET SCHEMA 'Project'");
+    $conn->query("SET SCHEMA 'FEUPbook'");
   } catch(PDOException $ex){
     $_SESSION['db_error'] = $ex;
   }

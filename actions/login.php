@@ -1,11 +1,11 @@
 <?php
   include ('../config/init.php');
-  include ('../database/user.php');
+  include ('../database/member.php');
 
   $email = $_POST['email'];
   $password = $_POST['password'];
 
-  if (isValidUser($email, $password)) {
+  if (isValidMember($email, $password)) {
     $_SESSION['success_message'] = 'Login successful!';
     $_SESSION['email'] = $email;
   } else {

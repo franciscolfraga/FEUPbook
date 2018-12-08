@@ -8,7 +8,7 @@
   $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16);
   $filePath = "media/profile-pics/$fileName.png";
 
-  if (profilepicEdit($filePath, $_SESSION['id'])) {
+  if (profilepicEdit($fileName, $_SESSION['id'])) {
     move_uploaded_file($tmp_name, "../../media/profile-pics/$fileName.png");
     // Delete his last pic
     if($_SESSION['profilepic'] != 'media/profile-pics/default.png'){

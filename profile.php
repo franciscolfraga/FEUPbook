@@ -20,8 +20,8 @@
     <?php if (isset($_SESSION['email'])) { ?>
       <div id="session">
         <?php include ('views/sticky-bar.php'); ?>
-        <!--This function will display any profile for a certain user id.
-          Created this way to use it to show a profile of any user.-->
+        <!--This function will display any profile for a certain member id.
+          Created this way to use it to show a profile of any member.-->
         <div class="card" id="profile">
           <?php profileCard($_SESSION['id']);?>
         </div>

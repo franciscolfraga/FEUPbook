@@ -1,6 +1,6 @@
 <?php
   include ('../config/init.php');
-  include ('../database/user.php');
+  include ('../database/member.php');
 
   $name = strip_tags($_POST['name']);
   $email = $_POST['email'];
@@ -17,13 +17,13 @@
     die(header('Location: ../index.php'));
   }
   try {
-    if( createUser($name, $email, $password))
-      $_SESSION['success_message'] = 'User registered with success!';
+    if( createMember($name, $email, $password))
+      $_SESSION['success_message'] = 'Member registered with success!';
     else
       $_SESSION['error_message'] = 'Failed to register!';
   } catch (PDOException $e) {
 
-    if (strpos($e->getMessage(), 'user_email_key') !== false){
+    if (strpos($e->getMessage(), 'member_email_key') !== false){
       $_SESSION['error_message'] = 'Email already exists!';
     }
     else{

@@ -1,10 +1,10 @@
 <?php
-  function getEntities() {
+  function getMemberTypes() {
     try {
       global $conn;
       if( $conn === null) return false;
 
-      $stmt = $conn->prepare('SELECT * FROM entity');
+      $stmt = $conn->prepare('SELECT * FROM membertype');
       $stmt->execute();
 
       return $stmt->fetchAll();

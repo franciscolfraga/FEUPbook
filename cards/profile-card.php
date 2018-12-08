@@ -1,23 +1,23 @@
-<?php include ('database/user.php'); ?>
+<?php include ('database/member.php'); ?>
 <?php function profileCard($id){
-    $currentUser = getUser($id);
-    if ($currentUser) { ?>
+    $currentMember = getMember($id);
+    if ($currentMember) { ?>
       <div id="cover"></div>
-      <img id="picture" src="<?php echo $currentUser['profilepic']?>">
+      <img id="picture" src="<?php echo $currentMember['profilepic']?>">
       <table class="profile-table">
         <tr>
           <td id="name" colspan="2">
-            <h2><?= $currentUser['name'] ?></h2>
-            <?php if ($currentUser['entityid']) {
-              $entity = getEntity($id);?>
-              <h3 id="entity"><?= $entity['name'] ?></h3>
+            <h2><?= $currentMember['name'] ?></h2>
+            <?php if ($currentMember['membertypeid']) {
+              $membertype = getMemberType($id);?>
+              <h3 id="membertype"><?= $membertype['name'] ?></h3>
             <?php } ?>
           </td>
         </tr>
-        <?php if ($currentUser['programid'] and $currentUser['entityid'] == 1) {
+        <?php if ($currentMember['programid'] and $currentMember['membertypeid'] == 1) {
         $program = getProgram($id);?>
           <tr>
-            <td><img id="program-logo" src="<?= $program['logo'] ?>"></td>
+            <td><img id="program-logo" src="<?php echo $program['logo_location']."".$program['logo']; ?>"></td>
           </tr>
           <tr>
             <td id="program-name"><?= $program['initials'] ?></td>
@@ -29,10 +29,13 @@
             <td id="program-dep"><?= $program['department'] ?></td>
           </tr>
         <?php } ?>
-        <?php if ($currentUser['depid'] and $currentUser['entityid'] > 1) {
+        <?php if ($currentMember['depid'] and $currentMember['membertypeid'] > 1) {
         $dep = getDepartment($id);?>
           <tr>
             <td><img id="dep-logo" src="media/icons/department.png"></td>
+          </tr>
+          <tr>
+            <td id="dep-initials"><?= $dep['initials'] ?></td>
           </tr>
           <tr>
             <td id="dep-name"><?= $dep['name'] ?></td>
@@ -42,10 +45,10 @@
           <td><img id="email-logo" src="media/icons/email.png"></td>
         </tr>
         <tr>
-          <td id="email-display"><h4><?= $currentUser['email'] ?></h4></td>
+          <td id="email-display"><h4><?= $currentMember['email'] ?></h4></td>
         </tr>
       </table>
     <?php } else {
-      $_SESSION['error_message'] = 'User not found!';
+      $_SESSION['error_message'] = 'Member not found!';
     }
   } ?>

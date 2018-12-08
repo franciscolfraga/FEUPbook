@@ -24,7 +24,7 @@
       <div class="card" id="settings">
         <!--This function will display the settings of any profile-id,
         not sure why I made it this way, maybe change it for the session
-        user only???-->
+        member only???-->
         <?php settingsCard($_SESSION['id']);?>
       </div>
     </div>
