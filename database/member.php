@@ -50,20 +50,20 @@
         } else {
           $mail['membertypeid'] = NULL;
         }
+        $mail['programid'] = NULL;
+        $mail['depid'] = NULL;
         $dep = getDepartment($mail['id']);
         if($dep) {
           $_SESSION['depid'] = $dep['id'];
           $mail['depid'] = $dep['id'];
-        } else {
-          $mail['programid'] = NULL;
         }
+
         $program = getProgram($mail['id']);
         if ($program) {
           $_SESSION['programid'] = $program['id'];
           $mail['programid'] = $program['id'];
-        } else {
-          $mail['depid'] = NULL;
         }
+        
         return $mail;
       } catch(PDOException $ex){
         $_SESSION['db_error'] = $ex;
@@ -157,20 +157,19 @@
         $_SESSION['membertypeid'] = $membertype['membertypeid'];
         $mail['membertypeid'] = $membertype['membertypeid'];
       }
+      $mail['depid'] = NULL;
+      $mail['programid'] = NULL;
 
       $dep = getDepartment($mail['id']);
       if($dep) {
         $_SESSION['depid'] = $dep['id'];
         $mail['depid'] = $dep['id'];
-      } else {
-        $mail['programid'] = NULL;
       }
+
       $program = getProgram($mail['id']);
       if ($program) {
         $_SESSION['programid'] = $program['id'];
         $mail['programid'] = $program['id'];
-      } else {
-        $mail['depid'] = NULL;
       }
 
       return $mail !== false && password_verify($password, $mail['password']);

@@ -14,7 +14,7 @@
             <?php } ?>
           </td>
         </tr>
-        <?php if ($currentMember['programid'] and $currentMember['membertypeid'] == 1) {
+        <?php if (isset($currentMember['programid']) and $currentMember['membertypeid'] == 1) {
         $program = getProgram($id);?>
           <tr>
             <td><img id="program-logo" src="<?php echo $program['logo_location']."".$program['logo']; ?>"></td>
@@ -29,7 +29,7 @@
             <td id="program-dep"><?= $program['department'] ?></td>
           </tr>
         <?php } ?>
-        <?php if ($currentMember['depid'] and $currentMember['membertypeid'] > 1) {
+        <?php if (isset($currentMember['depid']) and $currentMember['membertypeid'] > 1) {
         $dep = getDepartment($id);?>
           <tr>
             <td><img id="dep-logo" src="media/icons/department.png"></td>

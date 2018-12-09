@@ -57,7 +57,7 @@
       }
 
       //if user is no longer a employee/professor his department is reset
-      if($membertypeid != 1){
+      if($membertypeid == 1){
         $checkMemberDep = $conn->prepare('SELECT partof.circleid AS circleid
                                           FROM member JOIN
                                                partof ON ? = partof.memberid JOIN
@@ -94,12 +94,19 @@
       $getCircleFromProgram->execute(array($programid));
       $toinsert = $getCircleFromProgram->fetch();
 
-      if($toremove){
-        $update = $conn->prepare('UPDATE partof SET circleid = ? WHERE memberid = ? AND circleid = ?');
-        return $update->execute(array($toinsert['circleid'], $memberid ,$toremove['circleid']));
-      } else {
-        $insertion = $conn->prepare('INSERT INTO partof (memberid, circleid) VALUES (?, ?)');
-        return $insertion->execute(array($memberid, $toinsert['circleid']));
+      //update the circle of the program department too
+      $getProgramDepId = $conn->prepare('SELECT * FROM program WHERE id = ?');
+      $getProgramDepId->execute(array($programid));
+      $toChange = $getProgramDepId->fetch();
+
+      if(departmentEdit($toChange['deptid'], $memberid)){
+        if($toremove){
+          $update = $conn->prepare('UPDATE partof SET circleid = ? WHERE memberid = ? AND circleid = ?');
+          return $update->execute(array($toinsert['circleid'], $memberid ,$toremove['circleid']));
+        } else {
+          $insertion = $conn->prepare('INSERT INTO partof (memberid, circleid) VALUES (?, ?)');
+          return $insertion->execute(array($memberid, $toinsert['circleid']));
+        }
       }
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;
