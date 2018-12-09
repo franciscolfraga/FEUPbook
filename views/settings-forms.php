@@ -121,11 +121,11 @@ $mydepartment = getDepartments();?>
     <img class ="leave" onclick="leaveHandler()" src="media/icons/leave.png">
     <input type="hidden" name="img_name" value="<?= $img_name ?>">
     <label> Upload profile picture: <br>
-      <input type="file" name="photo">
+      <input type="file" name="photo" id="fileToUpload">
     </label>
     <br>
     <label>
-      <input type="Submit" value="Submit">
+      <input type="Submit" value="Submit" name="submitPhoto">
     </label>
   </form>
 </div>

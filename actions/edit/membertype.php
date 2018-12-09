@@ -10,7 +10,6 @@ $membertypeid = 0;
 foreach ($membertypes as $value){
   if($value['name'] == $membertypeName){
     $membertypeid = $value['id'];
-    $_SESSION['success_message'] = "MemberType finded $membertypeid!";
     break;
   }
 }

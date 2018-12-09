@@ -25,7 +25,7 @@
             <td class="edit"><img onclick="settingsPasswordHandler()" src="media/icons/edit.png"></td>
           </tr>
           <tr>
-            <td class="description">MemberType:</td>
+            <td class="description">Entity:</td>
             <td>
                 <?= $currentMemberType['name'] ?>
             </td>

@@ -43,8 +43,35 @@
       global $conn;
       if( $conn === null) return false;
 
+      //if user is no longer a student he has no program anymore
+      if($membertypeid != 1){
+        $checkMemberProgram = $conn->prepare('SELECT partof.circleid AS circleid
+                                              FROM member JOIN
+                                                   partof ON ? = partof.memberid JOIN
+                                                   circle ON partof.circleid = circle.id JOIN
+                                                   program ON program.circleid = circle.id');
+        $checkMemberProgram->execute(array($memberid));
+        $toremove = $checkMemberProgram->fetch();
+        $update = $conn->prepare('DELETE FROM partof WHERE memberid = ? AND circleid = ?');
+        $update->execute(array($memberid ,$toremove['circleid']));
+      }
+
+      //if user is no longer a employee/professor his department is reset
+      if($membertypeid != 1){
+        $checkMemberDep = $conn->prepare('SELECT partof.circleid AS circleid
+                                          FROM member JOIN
+                                               partof ON ? = partof.memberid JOIN
+                                               circle ON partof.circleid = circle.id JOIN
+                                               department ON department.circleid = circle.id');
+        $checkMemberDep->execute(array($memberid));
+        $toremove = $checkMemberDep->fetch();
+        $update = $conn->prepare('DELETE FROM partof WHERE memberid = ? AND circleid = ?');
+        $update->execute(array($memberid ,$toremove['circleid']));
+      }
+
       $stmt = $conn->prepare('UPDATE member SET membertypeid = ? WHERE id = ?');
       return $stmt->execute(array($membertypeid, $memberid));
+
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;
     }
@@ -95,7 +122,7 @@
       $getCircleFromDep->execute(array($depid));
       $toinsert = $getCircleFromDep->fetch();
 
-      if($checkMemberDep){
+      if($toremove){
         $update = $conn->prepare('UPDATE partof SET circleid = ? WHERE memberid = ? AND circleid = ?');
         return $update->execute(array($toinsert['circleid'], $memberid ,$toremove['circleid']));
       } else {
@@ -112,15 +139,21 @@
       global $conn;
       if( $conn === null) return false;
 
-      $member = $conn->prepare('SELECT * FROM member WHERE id = ?');
-      $toremove = $member->execute(array($memberid));
+      $stmt = $conn->prepare('SELECT * FROM member WHERE id = ?');
+      $stmt->execute(array($memberid));
+      $member = $stmt->fetch();
 
       if( $member['profilepic'] != 1 ){
-        $update = $conn->prepare('UPDATE name FROM media WHERE id = ?');
-        return $update->execute(array($member['profilepic']));
+        $update = $conn->prepare('UPDATE media SET name = ? WHERE id = ?');
+        return $update->execute(array($name, $member['profilepic']));
       } else {
         $insertion = $conn->prepare('INSERT INTO media (name, typeid) VALUES (?, ?)');
-        return $insertion->execute(array($name, 2));
+        $insertion->execute(array($name, 2));
+        $stmt = $conn->prepare('SELECT * FROM media WHERE name = ?');
+        $stmt->execute(array($name));
+        $pic = $stmt->fetch();
+        $update = $conn->prepare('UPDATE member SET profilepic = ? WHERE id = ?');
+        return $update->execute(array($pic['id'],$memberid));
       }
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;

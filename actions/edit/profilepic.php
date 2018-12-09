@@ -2,25 +2,36 @@
   include ('../../config/init.php');
   include ('../../database/edit.php');
 
-  $img_name = $_POST['img_name'];
-  $tmp_name = $_FILES['photo']['tmp_name'];
+  $target_file = $_FILES["photo"]["tmp_name"];
 
-  $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16);
-  $filePath = "media/profile-pics/$fileName.png";
 
-  if (profilepicEdit($fileName, $_SESSION['id'])) {
-    move_uploaded_file($tmp_name, "../../media/profile-pics/$fileName.png");
-    // Delete his last pic
-    if($_SESSION['profilepic'] != 'media/profile-pics/default.png'){
-      $old = getcwd(); // Save the current directory
-      chdir("../../");
-      unlink($_SESSION['profilepic']);
-      chdir($old); // Restore the old working directory
+  // Check if image file is an actual image or fake image
+  if(isset($_POST["submitPhoto"])) {
+    $check = getimagesize($_FILES["photo"]["tmp_name"]);
+
+    if($check !== false) {
+
+      $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16).".png";
+      move_uploaded_file( $target_file , "../../media/profile-pics/$fileName");
+
+      if (profilepicEdit($fileName , $_SESSION['id'])) {
+
+        // Delete his last pic
+        if($_SESSION['profilepic'] != 'media/profile-pics/default.png'){
+          $old = getcwd(); // Save the current directory
+          chdir("../../");
+          unlink($_SESSION['profilepic']);
+          chdir($old); // Restore the old working directory
+        }
+        $_SESSION['profilepic'] = "/media/profile-pics/$fileName";
+        $_SESSION['success_message'] = "Profile picture uploaded successfully!";
+      } else {
+        $_SESSION['error_message'] = 'Program upload failed!';
+      }
+    } else {
+        $_SESSION['error_message'] = 'File is not an image!';
     }
-    $_SESSION['profilepic'] = $filePath;
-    $_SESSION['success_message'] = "Profile picture uploaded successfully!";
-  } else {
-    $_SESSION['error_message'] = 'Program upload failed!';
   }
+
   header('Location: ../../settings.php');
 ?>
