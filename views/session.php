@@ -3,4 +3,5 @@
     network can provide. The files that represent the feed are missing.-->
 <?php
 include ('views/sticky-bar.php');
+include ('views/post-box.php');
 ?>

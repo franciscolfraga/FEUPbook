@@ -129,3 +129,24 @@ input:checked+.slider:before {
   background-color: #8c2d19;
   color: white;
 }
+
+#post-box-form {
+  position: absolute;
+  top: 7vh;
+  text-align: justify;
+  left: 50%;
+  width: 25%;
+  height: 10%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-bottom: 5%;
+}
+
+#post-box-form textarea {
+  padding-left: 1%;
+  padding-right: 1%;
+  border: transparent;
+  width: 97% !important;
+  height: 100% !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
