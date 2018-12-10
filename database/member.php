@@ -63,7 +63,30 @@
           $_SESSION['programid'] = $program['id'];
           $mail['programid'] = $program['id'];
         }
-        
+
+        return $mail;
+      } catch(PDOException $ex){
+        $_SESSION['db_error'] = $ex;
+      }
+    }
+
+
+  function getMemberFromPost($id) {
+      try {
+        global $conn;
+        if( $conn === null) return false;
+
+        $stmt = $conn->prepare('SELECT member.name AS name, member.email AS email, member.id AS id, member.password AS password, media.name AS pic , mediatype.location AS location
+                                FROM member JOIN media ON member.profilepic = media.id
+                                JOIN mediatype ON media.typeid = mediatype.id
+                                WHERE member.id = ? ');
+
+        $stmt->execute(array($id));
+
+        $mail = $stmt->fetch();
+
+        $mail['profilepic'] = $mail['location'].''.$mail['pic'];
+
         return $mail;
       } catch(PDOException $ex){
         $_SESSION['db_error'] = $ex;
@@ -173,6 +196,22 @@
       }
 
       return $mail !== false && password_verify($password, $mail['password']);
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
+  function postInsertion($postText, $memberid) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+      date_default_timezone_set('UTC');
+
+      $timestamp = date('Y-m-d G:i:s');
+
+      $stmt = $conn->prepare('INSERT INTO post (timest, message, memberid) VALUES (?, ?, ?)');
+      return $stmt->execute(array($timestamp, $postText, $memberid));
+
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;
     }

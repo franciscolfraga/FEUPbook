@@ -5,3 +5,6 @@
 include ('views/sticky-bar.php');
 include ('views/post-box.php');
 ?>
+<div id="posts_feed">
+
+</div>
