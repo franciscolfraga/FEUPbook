@@ -30,11 +30,7 @@
 
         $mail = $stmt->fetch();
 
-        $_SESSION['name'] = $mail['name'];
-        $_SESSION['id'] = $mail['id'];
-
         $mail['profilepic'] = $mail['location'].''.$mail['pic'];
-        $_SESSION['profilepic'] = $mail['location'].''.$mail['pic'];
 
         $stmt = $conn->prepare('SELECT membertype.id AS membertypeid
                                 FROM member
@@ -45,7 +41,6 @@
         $membertype = $stmt->fetch();
 
         if($membertype['membertypeid']){
-          $_SESSION['membertypeid'] = $membertype['membertypeid'];
           $mail['membertypeid'] = $membertype['membertypeid'];
         } else {
           $mail['membertypeid'] = NULL;
@@ -54,13 +49,11 @@
         $mail['depid'] = NULL;
         $dep = getDepartment($mail['id']);
         if($dep) {
-          $_SESSION['depid'] = $dep['id'];
           $mail['depid'] = $dep['id'];
         }
 
         $program = getProgram($mail['id']);
         if ($program) {
-          $_SESSION['programid'] = $program['id'];
           $mail['programid'] = $program['id'];
         }
 
@@ -205,12 +198,39 @@
     try {
       global $conn;
       if( $conn === null) return false;
-      date_default_timezone_set('UTC');
-
+      date_default_timezone_set('Europe/Lisbon');
       $timestamp = date('Y-m-d G:i:s');
 
       $stmt = $conn->prepare('INSERT INTO post (timest, message, memberid) VALUES (?, ?, ?)');
       return $stmt->execute(array($timestamp, $postText, $memberid));
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
+  function getGroups( $memberid ) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+
+      #add more types of circles...
+      $stmt = $conn->prepare('SELECT partof.memberid, partof.circleid, circletype.name AS circletype, department.name FROM partof
+                              JOIN circle ON partof.circleid = circle.id
+                              JOIN circletype ON circle.typeid = circletype.id
+                              JOIN department ON circle.id = department.circleid
+                              WHERE memberid = ? AND typeid=1
+                              UNION
+                              SELECT partof.memberid, partof.circleid, circletype.name AS circletype, program.name FROM partof
+                              JOIN circle ON partof.circleid = circle.id
+                              JOIN circletype ON circle.typeid = circletype.id
+                              JOIN program ON circle.id = program.circleid
+                              WHERE memberid = ? AND typeid=2');
+
+      $stmt->execute(array($memberid, $memberid));
+
+      return $stmt->fetchAll();
 
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;

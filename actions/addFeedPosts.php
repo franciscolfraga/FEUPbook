@@ -10,16 +10,38 @@ function load_feed($start){
       if( $i >= $start){?>
       <div class="card posts" id="posts-<?= $i ?>">
         <div class="posts-container">
-          <?php $member = getMemberFromPost($post['memberid']); ?>
+          <?php $member = getMemberFromPost($post['memberid']);
+          date_default_timezone_set('Europe/Lisbon');
+          $date1 = new DateTime($post['timest']);
+          $date2 = new DateTime("now");
+          $interval = $date2->diff($date1);
+          if($interval->y > 0)
+            $datestring = $interval->y . " years ago";
+          else if($interval->m > 0)
+            $datestring = $interval->y . " months ago";
+          else if($interval->d > 0)
+            $datestring = $interval->d . " days ago";
+          else if($interval->h > 0)
+            $datestring = $interval->h . " hours ago";
+          else if($interval->i > 0)
+            $datestring = $interval->i . " minutes ago";
+          else if($interval->s > 0)
+            $datestring = $interval->s . " seconds ago";
+          else {
+            $datestring = $interval->s . " seconds ago";
+          }
+
+          ?>
           <table>
             <tr class="details">
-              <td class="member_pic"><img onclick="#" src="<?= $member['profilepic'] ?>"></td>
-              <td class="member_name"><p><?= $member['name'] ?><p></td>
+              <td class="member_pic"><a href="../profile.php?profileid=<?= $member['id'] ?>" onclick="post"><img src="<?= $member['profilepic'] ?>"></a></td>
+              <td class="member_name"><p><a href="../profile.php?profileid=<?= $member['id'] ?>" onclick="post"><?= $member['name'] ?></a><p></td>
+              <td class="post_date"><p><?= $datestring ?><p></td>
             </tr>
-            <tr><td class="space" id="myborder" colspan="2"><p></td></tr>
-            <tr><td class="space" colspan="2"><p></td></tr>
+            <tr><td class="space" id="myborder" colspan="3"><p></td></tr>
+            <tr><td class="space" colspan="3"><p></td></tr>
             <tr class="post_text">
-              <td colspan="2"><?= $post['message'] ?></td>
+              <td colspan="3"><?= $post['message'] ?></td>
             </tr>
           </table>
 

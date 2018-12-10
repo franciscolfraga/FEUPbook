@@ -1,0 +1,34 @@
+#groups_feed {
+  position: absolute;
+  top: 6vh;
+  text-align: justify;
+  left: 50%;
+  width: 40%;
+  min-height: 10%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  margin-bottom: 5%;
+}
+
+.groups {
+  margin-top: 5%;
+  max-width: 100%;
+  min-height: 20%;
+  text-align: center;
+}
+
+.groups h3 {
+  padding-top: 2.5%;
+}
+
+.groups h4 {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.groups table {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 2%;
+}

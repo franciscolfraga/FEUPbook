@@ -12,11 +12,11 @@
       </td>
       <!--Sticky-bar anchor to the profile.php page.-->
       <td id="img-col">
-        <a href="../profile.php"><img id="profile-pic" src="<?php echo $_SESSION['profilepic']?>"></a>
+        <a href="../profile.php?profileid=<?= $_SESSION['id'] ?>" onclick="post"><img id="profile-pic" src="<?php echo $_SESSION['profilepic']?>"></a>
       </td>
       <!--Sticky-bar anchor to the profile.php page-->
       <td id="name-col">
-        <a href="../profile.php"><?php echo $_SESSION['name']?></a>
+        <a href="../profile.php?profileid=<?= $_SESSION['id'] ?>" onclick="post"><?php echo $_SESSION['name']?></a>
       </td>
       <!--Sticky-bar search section. Not functional yet.-->
       <td id="search-col">
@@ -29,7 +29,7 @@
       </td>
       <!--Sticky-bar anchor to the groups section. Not functional yet.-->
       <td>
-        <a href="#"><img src="media/icons/groups.png"></a>
+        <a href="../groups.php"><img src="media/icons/groups.png"></a>
       </td>
       <!--Sticky-bar anchor to the messages section. Not functional yet.-->
       <td>

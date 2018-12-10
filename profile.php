@@ -23,7 +23,7 @@
         <!--This function will display any profile for a certain member id.
           Created this way to use it to show a profile of any member.-->
         <div class="card" id="profile">
-          <?php profileCard($_SESSION['id']);?>
+          <?php profileCard($_GET['profileid']);?>
         </div>
       </div>
       <!--If a session variable is not set we'll have an error message and

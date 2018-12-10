@@ -59,4 +59,37 @@
     }
   }
 
+  function getCircleMembers( $circleid ) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT member.id AS memberid, membertypeid FROM member JOIN partof ON member.id = partof.memberid WHERE partof.circleid = ?');
+
+      $stmt->execute(array($circleid));
+
+      return $stmt->fetchAll();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
+  function getCirclePosts( $circleid ) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT * FROM postedin WHERE circleid = ?');
+
+      $stmt->execute(array($circleid));
+
+      return $stmt->fetchAll();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
+
 ?>

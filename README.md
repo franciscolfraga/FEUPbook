@@ -28,7 +28,7 @@ The database design is available in 2 pdf documents placed at the root of the re
   - [X] Authentication.
   - [X] Member profile design.
   - [X] Database design and implementation.
-  - [ ] Workspace and feed design.
+  - [X] Workspace and feed design.
   - [X] Settings page design.
   - [X] Settings page backend.
   - [ ] Algorithm to define and evaluate affinity levels between profiles.

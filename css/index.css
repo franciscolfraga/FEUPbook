@@ -140,6 +140,7 @@ input:checked+.slider:before {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   margin-bottom: 5%;
+  z-index: 3;
 }
 
 #post-box-form textarea {
@@ -152,7 +153,7 @@ input:checked+.slider:before {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-left: auto;
   margin-right: auto;
-  z-index: 2;
+  z-index: 3;
 }
 
 #post-box-buttons {
@@ -164,7 +165,7 @@ input:checked+.slider:before {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  z-index: 3;
 }
 
 #post-box-buttons td {
@@ -231,7 +232,7 @@ input:checked+.slider:before {
   width: 100%;
   height: 100%;
   background-color: rgba(20, 20, 20, 0.8);
-  z-index: 0;
+  z-index: 2;
 }
 
 #posts_feed {
@@ -244,7 +245,12 @@ input:checked+.slider:before {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   margin-bottom: 5%;
-  z-index: -1;
+  z-index: 0;
+}
+
+#posts_feed a {
+  text-decoration: none !important;
+  color: #8c2d19 !important;
 }
 
 .posts {
@@ -287,6 +293,7 @@ input:checked+.slider:before {
 .details td {
   position: relative;
   height: 100%;
+  color: #8c2d19;
 }
 
 .details .member_pic {
@@ -303,6 +310,10 @@ input:checked+.slider:before {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   clip-path: circle();
+}
+
+.post_date {
+  text-align: right;
 }
 
 #endPosts {
