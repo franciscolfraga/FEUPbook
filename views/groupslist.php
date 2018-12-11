@@ -6,7 +6,8 @@ include ('database/lists.php');?>
       foreach($groups as $group) {
         $members = getCircleMembers($group['circleid']);
         $posts = getCirclePosts($group['circleid']);?>
-          <div class="card groups" id="groups-<?= $i ?>">
+        <a href="../groupview.php?groupid=<?= $group['circleid'] ?>" onclick="post">
+          <div class="card groups">
             <p><h3><?= $group['name'] ?> Group</h3><p>
               <table>
                 <tr>
@@ -17,8 +18,9 @@ include ('database/lists.php');?>
                 </tr>
               </table>
           </div>
+        </a>
     <?php }
         } else {
-      $_SESSION['error_message'] = 'Groups not found!';
+      ?><h4 id="no_groups">No groups to be displayed!</h4><?php
     }
   } ?>

@@ -2,8 +2,8 @@
 include ('../config/init.php');
 include ('../database/lists.php');
 include ('../database/member.php');
-function load_feed($start){
-  $my_posts=getPosts();
+function load_feed($start, $circleid){
+  $my_posts=getPosts($circleid);
   if($my_posts){
     $i = 0;
     foreach($my_posts as $post) {
@@ -28,7 +28,7 @@ function load_feed($start){
           else if($interval->s > 0)
             $datestring = $interval->s . " seconds ago";
           else {
-            $datestring = $interval->s . " seconds ago";
+            $datestring = "Just now";
           }
 
           ?>
@@ -51,12 +51,11 @@ function load_feed($start){
       if (++$i == $start + 4) break;
     }
   } else {
-    $_SESSION['error_message'] = 'Could not load posts!';
-    die(header('Location: ../index.php'));
+
   }
 }
 
-if (isset($_POST['start'])) {
-        echo load_feed($_POST['start']);
+if (isset($_POST['start'], $_POST['circleid'])) {
+        echo load_feed($_POST['start'], $_POST['circleid']);
     }
 ?>

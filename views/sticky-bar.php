@@ -29,7 +29,7 @@
       </td>
       <!--Sticky-bar anchor to the groups section. Not functional yet.-->
       <td>
-        <a href="../groups.php"><img src="media/icons/groups.png"></a>
+        <a href="../groupslist.php"><img src="media/icons/groups.png"></a>
       </td>
       <!--Sticky-bar anchor to the messages section. Not functional yet.-->
       <td>

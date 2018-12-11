@@ -2,7 +2,7 @@
 <html lang="pt" dir="ltr">
   <?php
   include ('config/init.php');
-  include ('views/groups.php');
+  include ('views/groupslist.php');
   header ('Content-type: text/html; charset=ISO-8859-15');
   ?>
   <head>

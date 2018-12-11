@@ -194,16 +194,21 @@
     }
   }
 
-  function postInsertion($postText, $memberid) {
+  function postInsertion($postText, $memberid, $circleid) {
     try {
       global $conn;
       if( $conn === null) return false;
       date_default_timezone_set('Europe/Lisbon');
       $timestamp = date('Y-m-d G:i:s');
 
-      $stmt = $conn->prepare('INSERT INTO post (timest, message, memberid) VALUES (?, ?, ?)');
-      return $stmt->execute(array($timestamp, $postText, $memberid));
+      $stmt = $conn->prepare('INSERT INTO post (timest, message, memberid) VALUES (?, ?, ?) RETURNING id');
+      $stmt->execute(array($timestamp, $postText, $memberid));
+      $post = $stmt->fetch();
 
+      $ok = $conn->prepare('INSERT INTO postedin (postid, circleid) VALUES (?, ?)');
+      $ok->execute(array($post['id'], $circleid));
+
+      return $stmt && $ok;
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;
     }

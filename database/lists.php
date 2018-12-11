@@ -44,13 +44,13 @@
     }
   }
 
-  function getPosts() {
+  function getPosts( $circleid ) {
     try {
       global $conn;
       if( $conn === null) return false;
 
-      $stmt = $conn->prepare('SELECT * FROM post ORDER BY timest DESC');
-      $stmt->execute();
+      $stmt = $conn->prepare('SELECT * FROM post JOIN postedin ON post.id = postedin.postid WHERE postedin.circleid = ?  ORDER BY timest DESC');
+      $stmt->execute(array($circleid));
 
       return $stmt->fetchAll();
 
@@ -79,13 +79,9 @@
     try {
       global $conn;
       if( $conn === null) return false;
-
       $stmt = $conn->prepare('SELECT * FROM postedin WHERE circleid = ?');
-
       $stmt->execute(array($circleid));
-
       return $stmt->fetchAll();
-
     } catch(PDOException $ex){
       $_SESSION['db_error'] = $ex;
     }

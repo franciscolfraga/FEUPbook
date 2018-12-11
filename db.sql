@@ -160,6 +160,10 @@ INSERT INTO membertype VALUES (2,'Professor');
 INSERT INTO membertype VALUES (3,'Employee');
 INSERT INTO membertype VALUES (4,'Admin');
 
+-- Create global circle
+
+INSERT INTO circle VALUES (DEFAULT, 8);
+
 -- Departments
 
 INSERT INTO circle VALUES (DEFAULT, 1);

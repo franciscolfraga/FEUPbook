@@ -14,8 +14,10 @@
       index.css has the css inherent to the current page.-->
    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
    <link rel="stylesheet" type="text/css" href="css/index.css">
+   <link rel="stylesheet" type="text/css" href="css/feed.css">
    <link rel="icon" href="media/logo.png">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript" src="js/posts-handler.js"></script>
   </head>
   <body>
     <!--If a session variable is set it will display a logged in member, it
@@ -23,6 +25,8 @@
         files are included in order to create a session environment.-->
     <?php if (isset($_SESSION['email'])) { ?>
       <div id="session">
+        <?php $postscircle = 1;
+              $location = 'index.php'?>
         <?php include ('views/session.php'); ?>
       </div>
     <!--On the other hand, if a session variable is not set it will display
@@ -51,7 +55,6 @@
 
     <script type="text/javascript" src="js/post-box-handler.js"></script>
 
-    <script type="text/javascript" src="js/posts-handler.js"></script>
 
     <!--javascript file that will close a notification when you click on it.-->
     <script type="text/javascript" src="js/notification-transition.js"></script>

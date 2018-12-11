@@ -1,7 +1,7 @@
 #groups_feed {
   position: absolute;
   top: 6vh;
-  text-align: justify;
+  text-align: center;
   left: 50%;
   width: 40%;
   min-height: 10%;
@@ -19,11 +19,15 @@
 
 .groups h3 {
   padding-top: 2.5%;
+  text-decoration: none !important;
+  color: #8c2d19 !important;
 }
 
 .groups h4 {
   margin-top: 1%;
   margin-bottom: 1%;
+  text-decoration: none !important;
+  color: black !important;
 }
 
 .groups table {
@@ -31,4 +35,14 @@
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 2%;
+}
+
+a:link, a:visited {
+  text-decoration: none !important;
+}
+
+#no_groups {
+  color: #8c2d19;
+  margin-top: 7%;
+  font-size: 18px;
 }

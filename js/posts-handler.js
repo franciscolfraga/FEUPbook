@@ -1,23 +1,32 @@
 const loader = '<div class="lds-ellipsis" id ="loader"><div></div><div></div><div></div><div></div></div>';
 const endOfPosts = '<div id ="endPosts"><b>No more posts to be displayed!</b></div>';
 var postscounter = 0;
+var circleid;
 
-$(document).ready(function(){
+function getPostsFrom(wantedcircle){
+        circleid = wantedcircle;
+        if(circleid != 1){
+          $('#post-box-form').addClass( "group_box" );
+        }
         addPostRecursively();
-   });
+   }
 
   function addPostRecursively(){
     $('#posts_feed').append(loader);
     $.ajax({
       url: '../actions/addFeedPosts.php',
       type: 'post',
-      data: { "start": postscounter},
+      data: { "start": postscounter, "circleid": circleid},
         success: function(data) {
             $('#loader').remove();
             $('#posts_feed').append(data);
             postscounter += 4;
             bottomReached = false;
-            if( $('#posts_feed').height() < $(window).height() ) {
+            if(!data){
+              $('#loader').remove();
+              $('#posts_feed').append(endOfPosts);
+            }
+            else if( $('#posts_feed').height() < $(window).height() ) {
               addPostRecursively();
             } else {
               scrollAllowed();
@@ -37,7 +46,7 @@ $(document).ready(function(){
           $.ajax({
             url: '../actions/addFeedPosts.php',
             type: 'post',
-            data: { "start": postscounter},
+            data: {"start": postscounter, "circleid": circleid},
               success: function(data) {
                   $('#loader').remove();
                   $('#posts_feed').append(data);
