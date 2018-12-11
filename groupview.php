@@ -15,7 +15,6 @@
    <link rel="stylesheet" type="text/css" href="css/feed.css">
    <link rel="icon" href="media/logo.png">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/posts-handler.js"></script>
   </head>
   <body>
 
@@ -27,9 +26,7 @@
           $groupDetails = getCircleDetails($postscircle)?>
           <h1 class="group_title"> <?= $groupDetails['name']; ?> Group </h1>
           <?php  include ('views/post-box.php'); ?>
-          <script> getPostsFrom(<?= $postscircle; ?>) </script>
           <div id="posts_feed" class = "group_feed">
-
           </div>
       </div>
     <?php } else {
@@ -46,7 +43,10 @@
 
     <script type="text/javascript" src="js/post-box-handler.js"></script>
 
+    <script type="text/javascript" src="js/posts-handler.js"></script>
+
     <!--javascript file that will close a notification when you click on it.-->
     <script type="text/javascript" src="js/notification-transition.js"></script>
   </head>
+  <script> getPostsFrom(<?= $postscircle; ?>) </script>
 </html>

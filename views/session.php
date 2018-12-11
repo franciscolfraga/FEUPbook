@@ -5,7 +5,5 @@
 include ('views/sticky-bar.php');
 include ('views/post-box.php');
 ?>
-<script> getPostsFrom(1) </script>
 <div id="posts_feed">
-
 </div>

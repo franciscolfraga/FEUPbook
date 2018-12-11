@@ -8,17 +8,16 @@ function getPostsFrom(wantedcircle){
         if(circleid != 1){
           $('#post-box-form').addClass( "group_box" );
         }
+        $('#posts_feed').append(loader);
         addPostRecursively();
    }
 
   function addPostRecursively(){
-    $('#posts_feed').append(loader);
     $.ajax({
       url: '../actions/addFeedPosts.php',
       type: 'post',
       data: { "start": postscounter, "circleid": circleid},
         success: function(data) {
-            $('#loader').remove();
             $('#posts_feed').append(data);
             postscounter += 4;
             bottomReached = false;
@@ -35,6 +34,7 @@ function getPostsFrom(wantedcircle){
     });
   }
   function scrollAllowed() {
+    $('#loader').remove();
     var bottomReached = false;
     var noMorePosts = false;
     console.log(postscounter);
