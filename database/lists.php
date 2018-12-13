@@ -64,7 +64,7 @@
       global $conn;
       if( $conn === null) return false;
 
-      $stmt = $conn->prepare('SELECT member.id AS memberid, membertypeid FROM member JOIN partof ON member.id = partof.memberid WHERE partof.circleid = ?');
+      $stmt = $conn->prepare('SELECT member.id AS id, member.name AS name, membertypeid FROM member JOIN partof ON member.id = partof.memberid WHERE partof.circleid = ?');
 
       $stmt->execute(array($circleid));
 

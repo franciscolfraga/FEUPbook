@@ -2,7 +2,7 @@
 <html lang="pt" dir="ltr">
   <?php
   include ('config/init.php');
-  include ('views/groupslist.php');
+  include ('views/messageslist.php');
   header ('Content-type: text/html; charset=ISO-8859-15');
   ?>
   <head>
@@ -12,16 +12,24 @@
    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
-   <link rel="stylesheet" type="text/css" href="css/groups.css">
+   <link rel="stylesheet" type="text/css" href="css/messages.css">
    <link rel="icon" href="media/logo.png">
   </head>
   <body>
     <?php if (isset($_SESSION['email'])) { ?>
       <div id="session">
         <?php include ('views/sticky-bar.php'); ?>
-        <div id="groups_feed">
-          <h2>Groups</h2>
-          <?php listGroups(); ?>
+        <div id="messages_feed">
+          <h2>Messages</h2>
+          <table id="messages_table">
+            <tr>
+              <td class="list">
+                <?php listMessages(); ?>
+              </td>
+              <td class="my_messages">
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 

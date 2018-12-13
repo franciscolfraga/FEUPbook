@@ -33,7 +33,7 @@
       </td>
       <!--Sticky-bar anchor to the messages section. Not functional yet.-->
       <td>
-        <a href="#"><img src="media/icons/messages.png"></a>
+        <a href="../messages.php"><img src="media/icons/messages.png"></a>
       </td>
       <!--Sticky-bar anchor to the settings section.-->
       <td>

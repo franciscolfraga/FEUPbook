@@ -242,4 +242,73 @@
     }
   }
 
+  function getMessagesCircles( $memberid ) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+
+      #add more types of circles...
+      $stmt = $conn->prepare('SELECT partof.circleid AS id FROM chat JOIN partof ON chat.circleid = partof.circleid AND memberid = ?');
+
+      $stmt->execute(array($memberid));
+
+      return $stmt->fetchAll();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
+
+  function CreateIfNeeded( $member1 , $member2 ) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT chat.id FROM chat
+                              JOIN circle ON circle.id = chat.circleid
+                              JOIN partof ON partof.circleid = circle.id
+                              WHERE memberid = ?
+                              INTERSECT
+                              SELECT chat.id FROM chat
+                              JOIN circle ON circle.id = chat.circleid
+                              JOIN partof ON partof.circleid = circle.id
+                              WHERE memberid = ?');
+
+      $stmt->execute(array($member1, $member2));
+      $chat1 = $stmt->fetch();
+      if($chat1){
+        return $chat1;
+      }
+
+      $checkAdhoc = $conn->prepare('SELECT id FROM circletype WHERE name = ?');
+      $checkAdhoc->execute(array('AdHoc'));
+      $adhoc = $checkAdhoc->fetch();
+
+      $circle_insertion = $conn->prepare('INSERT INTO circle (typeid) VALUES (?) RETURNING id');
+      $circle_insertion->execute(array($adhoc['id']));
+      $circle = $circle_insertion->fetch();
+
+      $member1_insertion = $conn->prepare('INSERT INTO partof (memberid, circleid) VALUES (?, ?)');
+      $member1_insertion->execute(array($member1,$circle['id']));
+
+      $member2_insertion = $conn->prepare('INSERT INTO partof (memberid, circleid) VALUES (?, ?)');
+      $member2_insertion->execute(array($member2,$circle['id']));
+
+      $chat_insertion = $conn->prepare('INSERT INTO chat (circleid) VALUES (?) RETURNING id');
+      $chat_insertion->execute(array($circle['id']));
+      $chat = $chat_insertion->fetch();
+
+      if($chat and $circle and $adhoc)
+        return $chat;
+      else {
+        return null;
+      }
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
 ?>

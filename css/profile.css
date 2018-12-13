@@ -77,6 +77,11 @@
   height: 7.5%;
 }
 
+#chat-logo {
+  cursor: pointer;
+  height: 7.5%;
+}
+
 .profile-table tr h4 {
   margin-top: 0%;
   font-weight: normal;

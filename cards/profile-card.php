@@ -1,6 +1,6 @@
-<?php include ('database/member.php'); ?>
-<?php function profileCard($id){
-    $currentMember = getMember($id);
+<?php include ('database/member.php');?>
+<?php function profileCard($id){ ?>
+    <?php $currentMember = getMember($id);
     if ($currentMember) { ?>
       <div id="cover"></div>
       <img id="picture" src="<?php echo $currentMember['profilepic']?>">
@@ -14,7 +14,12 @@
             <?php } ?>
           </td>
         </tr>
-        <?php if (isset($currentMember['programid']) and $currentMember['membertypeid'] == 1) {
+        <?php if( $currentMember['id'] != $_SESSION['id']) { ?>
+        <tr>
+          <td><a href="../actions/chat.php?member1=<?= $_SESSION['id'] ?>&member2=<?= $currentMember['id'] ?>" onclick="post"><img id="chat-logo" src="media/icons/chat.png"></a></td>
+        </tr>
+        <?php }
+        if (isset($currentMember['programid']) and $currentMember['membertypeid'] == 1) {
         $program = getProgram($id);?>
           <tr>
             <td><img id="program-logo" src="<?php echo $program['logo_location']."".$program['logo']; ?>"></td>

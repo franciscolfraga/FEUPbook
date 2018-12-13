@@ -6,7 +6,7 @@ include ('database/lists.php');?>
       foreach($groups as $group) {
         $members = getCircleMembers($group['circleid']);
         $posts = getCirclePosts($group['circleid']);?>
-        <a href="../groupview.php?groupid=<?= $group['circleid'] ?>" onclick="post">
+        <a href="groupview.php?groupid=<?= $group['circleid'] ?>" onclick="post">
           <div class="card groups">
             <p><h3><?= $group['name'] ?> Group</h3><p>
               <table>
