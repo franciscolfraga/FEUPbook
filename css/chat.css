@@ -1,9 +1,9 @@
 #chat-box-form {
-  position: fixed;
+  position: absolute;
   top: 80%;
   text-align: justify;
   left: 50%;
-  width: 40%;
+  width: 82.5%;
   height: 10%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -89,4 +89,100 @@
 
 #button-col {
   width: 20% !important;
+}
+
+.my_messages {
+  width: 100%;
+  height: 100%;
+}
+
+#entries-list {
+  position: absolute;
+  top: 2%;
+  text-align: justify;
+  left: 50%;
+  width: 85%;
+  height: 75%;
+  max-height: 75%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-transform: translateX(-51%);
+  transform: translateX(-50%);
+}
+
+.entry {
+  margin-bottom: 2%;
+  text-align: left;
+  width: 60% !important;
+  -webkit-border-radius: 5px;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius: 5px;
+  -moz-border-radius-topleft: 0;
+  border-radius: 5px;
+  border-top-left-radius: 0;
+  background-color: rgba(140, 45, 25, 0.1) !important;
+}
+
+.foreign {
+  margin-left: 37%;
+  -webkit-border-radius: 5px;
+  -webkit-border-top-right-radius: 0;
+  -moz-border-radius: 5px;
+  -moz-border-radius-topright: 0;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  background-color: white !important;
+}
+
+.message_details {
+  min-height: 30vh !important;
+  text-align: left;
+}
+
+.entry table {
+  width: 100%;
+  padding: 1%;
+}
+
+.message_details td {
+  position: relative;
+  height: 100%;
+}
+
+.message_details td p {
+  font-size: 12px;
+}
+
+.message_details a {
+  text-decoration: none !important;
+  color: #8c2d19 !important;
+}
+
+#myborder {
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+#myborder p {
+  font-size: 6px;
+}
+
+.message_details .message_member_pic {
+  width: 15% !important;
+}
+
+.message_details img {
+  position: absolute;
+  width: auto;
+  height: 80%;
+  background-color: none;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  clip-path: circle();
+}
+
+.message_post_date {
+  text-align: right;
 }

@@ -10,7 +10,7 @@
 
   if ( $chat != null ) {
     $chatid = $chat['id'];
-    die(header("Location: ../chat.php?id=$chatid"));
+    die(header("Location: ../messages.php?id=$chatid"));
   } else {
     $_SESSION['error_message'] = 'Chat generation failed!';
     header('Location: ../index.php');

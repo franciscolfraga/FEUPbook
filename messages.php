@@ -13,27 +13,40 @@
 
    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
    <link rel="stylesheet" type="text/css" href="css/messages.css">
+   <link rel="stylesheet" type="text/css" href="css/chat.css">
    <link rel="icon" href="media/logo.png">
   </head>
   <body>
-    <?php if (isset($_SESSION['email'])) { ?>
-      <div id="session">
-        <?php include ('views/sticky-bar.php'); ?>
-        <div id="messages_feed">
-          <h2>Messages</h2>
-          <table id="messages_table">
-            <tr>
-              <td class="list">
-                <?php listMessages(); ?>
-              </td>
-              <td class="my_messages">
-              </td>
-            </tr>
-          </table>
+    <?php if (isset($_SESSION['email'])) {
+      if(isset($_GET['id'])){
+        $chatid = $_GET['id'];
+        $location = 'messages.php?id='.$chatid;?>
+        <div id="session">
+          <?php include ('views/sticky-bar.php'); ?>
+          <div id="messages_feed">
+            <h2>Messages</h2>
+            <table id="messages_table">
+              <tr>
+                <td class="list">
+                  <?php listMessages($chatid); ?>
+                </td>
+                <td class="my_messages">
+                  <div id="entries-list">
+                    <?php getChat($chatid); ?>
+                  </div>
+                  <?php include ('views/chat-box.php'); ?>
+                </td>
+              </tr>
+            </table>
+          </div>
         </div>
-      </div>
-
     <?php } else {
+            $circles = getMessagesCircles($_SESSION['id']);
+            $chatid = array_values($circles)[0]['chatid'];
+            $location = 'messages.php?id='.$chatid;
+            header('Location: '.$location);
+          }
+        } else {
       $_SESSION['error_message'] = 'You are not logged in!';
       header('Location: ../index.php');
      } ?>

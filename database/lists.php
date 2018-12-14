@@ -87,5 +87,21 @@
     }
   }
 
+  function getChatEntries( $chatid ) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+      $stmt = $conn->prepare('SELECT chatentry.message, chatentry.memberid, chatentry.timest, member.name AS member_name, media.name AS media_name, mediatype.location AS medialocation 
+                              FROM chatentry JOIN member ON chatentry.memberid = member.id
+                              JOIN media ON media.id = member.profilepic
+                              JOIN mediatype ON media.typeid = mediatype.id
+                              WHERE chatentry.chatid = ?  ORDER BY timest DESC');
+      $stmt->execute(array($chatid));
+      return $stmt->fetchAll();
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
 
 ?>

@@ -214,6 +214,20 @@
     }
   }
 
+  function chatInsertion($postText, $memberid, $chatid) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+      date_default_timezone_set('Europe/Lisbon');
+      $timestamp = date('Y-m-d G:i:s');
+
+      $stmt = $conn->prepare('INSERT INTO chatentry (timest, message, chatid, memberid) VALUES (?, ?, ?, ?)');
+      return $stmt->execute(array($timestamp, $postText, $chatid, $memberid));
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
   function getGroups( $memberid ) {
     try {
       global $conn;
@@ -249,7 +263,7 @@
 
 
       #add more types of circles...
-      $stmt = $conn->prepare('SELECT partof.circleid AS id FROM chat JOIN partof ON chat.circleid = partof.circleid AND memberid = ?');
+      $stmt = $conn->prepare('SELECT partof.circleid AS id, chat.id AS chatid FROM chat JOIN partof ON chat.circleid = partof.circleid AND memberid = ?');
 
       $stmt->execute(array($memberid));
 
