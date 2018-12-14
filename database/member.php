@@ -262,8 +262,21 @@
       if( $conn === null) return false;
 
 
-      #add more types of circles...
-      $stmt = $conn->prepare('SELECT partof.circleid AS id, chat.id AS chatid FROM chat JOIN partof ON chat.circleid = partof.circleid AND memberid = ?');
+      $stmt = $conn->prepare('WITH member_circles (circleid, chatid) AS
+                              (SELECT partof.circleid AS circleid, chat.id AS chatid
+                              FROM chat JOIN
+                              	 partof ON chat.circleid = partof.circleid
+                              WHERE partof.memberid = ?),
+                              	 circles_maxts (circleid, maxts) AS
+                              (SELECT member_circles.circleid, MAX(timest) AS maxts
+                              FROM chatentry RIGHT JOIN
+                              	 member_circles USING(chatid)
+                              GROUP BY member_circles.circleid)
+
+                              SELECT circles_maxts.circleid AS id, chat.id AS chatid
+                              FROM circles_maxts JOIN
+                              	 chat USING(circleid)
+                              ORDER BY maxts IS NULL, maxts DESC');
 
       $stmt->execute(array($memberid));
 
