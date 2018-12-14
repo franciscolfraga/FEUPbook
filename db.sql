@@ -7,7 +7,7 @@ CREATE TABLE mediatype (
 );
 
 CREATE TABLE circletype (
-  id SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,	
   name VARCHAR(32)
 );
 
@@ -77,7 +77,6 @@ CREATE TABLE course (
   name VARCHAR(128) NOT NULL,
   initials VARCHAR(16) NOT NULL,
   year VARCHAR(16) NOT NULL,
-  semester VARCHAR(16) NOT NULL,
   progid INTEGER NOT NULL REFERENCES program,
   circleid INTEGER NOT NULL UNIQUE REFERENCES circle
 );
@@ -86,13 +85,6 @@ CREATE TABLE class (
   id SERIAL PRIMARY KEY,
   reference VARCHAR(16) NOT NULL,
   courseid INTEGER NOT NULL REFERENCES course,
-  circleid INTEGER NOT NULL UNIQUE REFERENCES circle
-);
-
-CREATE TABLE workgroup (
-  id SERIAL PRIMARY KEY,
-  reference VARCHAR(16) NOT NULL,
-  classid INTEGER NOT NULL REFERENCES class,
   circleid INTEGER NOT NULL UNIQUE REFERENCES circle
 );
 
@@ -108,8 +100,9 @@ CREATE TABLE partof (
   PRIMARY KEY (memberid, circleid)
 );
 
-CREATE TABLE notification (
+CREATE TABLE notification ( 
   id SERIAL PRIMARY KEY,
+  message VARCHAR NOT NULL,
   readstatus BOOLEAN NOT NULL DEFAULT FALSE
 );
 
@@ -149,10 +142,9 @@ INSERT INTO circletype VALUES (1,'Department');
 INSERT INTO circletype VALUES (2,'Program');
 INSERT INTO circletype VALUES (3,'Course');
 INSERT INTO circletype VALUES (4,'Class');
-INSERT INTO circletype VALUES (5,'Workgroup');
-INSERT INTO circletype VALUES (6,'Admin');
-INSERT INTO circletype VALUES (7,'AdHoc');
-INSERT INTO circletype VALUES (8,'Global');
+INSERT INTO circletype VALUES (5,'Admin');
+INSERT INTO circletype VALUES (6,'AdHoc');
+INSERT INTO circletype VALUES (7,'Global');
 
 -- Membertypes
 
@@ -161,11 +153,11 @@ INSERT INTO membertype VALUES (2,'Professor');
 INSERT INTO membertype VALUES (3,'Employee');
 INSERT INTO membertype VALUES (4,'Admin');
 
--- Create global circle
+-- Insert global circle
 
-INSERT INTO circle VALUES (DEFAULT, 8);
+INSERT INTO circle VALUES (DEFAULT, 7); -- 1st circle
 
--- Departments
+-- Departments - circles 2 to 10
 
 INSERT INTO circle VALUES (DEFAULT, 1);
 INSERT INTO department VALUES (1,'Department of Chemical Engineering','DEQ',currval('circle_id_seq'));
@@ -190,7 +182,7 @@ INSERT INTO department VALUES (9,'Department of Physics Engineering','DEF',currv
 
 INSERT INTO media VALUES (DEFAULT, 'default.png', 2, NULL);
 
--- Programs
+-- Programs - circles 11 to 20
 
 INSERT INTO media VALUES (DEFAULT,'mib.png',1,NULL);
 INSERT INTO circle VALUES (DEFAULT, 2);
