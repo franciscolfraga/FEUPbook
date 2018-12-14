@@ -17,9 +17,13 @@ You just need to copy the files into [htdocs](C:\xampp\htdocs) directory after i
 
 The following lines in XAMPP's php.ini should be uncommented or added: extension=php_pdo_pgsql.dll; default_charset = "iso-8859-15".
 
-## Database Design
+## Database Design and Implementation
 
-The database design is available in 2 pdf documents placed at the root of the repository. The sql script that implements the database is available at the same location.
+The database design is available in 2 pdf documents placed at the root of the repository. The sql script that implements the database is available at the same location. The sql script also partially populates the database.
+
+## Database Population
+
+Additional population operations are performed with a Java utility. The code for such utility can be found at https://github.com/mcardoso-pt/FEUPbookDB.
 
 ## Deployment
 
@@ -28,6 +32,7 @@ The database design is available in 2 pdf documents placed at the root of the re
   - [X] Authentication.
   - [X] Member profile design.
   - [X] Database design and implementation.
+  - [X] Database population utility in Java.
   - [X] Workspace and feed design.
   - [X] Settings page design.
   - [X] Settings page backend.
@@ -40,6 +45,7 @@ The database design is available in 2 pdf documents placed at the root of the re
   - [ ] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
   - [ ] Password recovering.
   - [ ] Administrator members that can edit or delete any inserted post.
+  - [ ] Search bar.
 
 ## Assignments
 
@@ -49,12 +55,14 @@ Francisco Fraga:
 * Settings Design.
 * Settings page backend.
 * Automatic FEUP news display on feed.
-
-Miguel Cardoso:
 * Workspace and Feed design.
 * Chat.
 * Notifications.
+
+Miguel Cardoso:
 * Database design and implementation.
+* Database population utility in Java.
+* Search bar.
 
 ## Built With
 
