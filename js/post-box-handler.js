@@ -13,4 +13,8 @@ $(document).ready(function(){
       $('#post-box-buttons').fadeOut(0);
     });
 
+    $('#file-pic').on('click', function() {
+      $('#UploadFile').click();
+    });
+
   });

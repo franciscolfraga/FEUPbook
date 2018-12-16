@@ -194,7 +194,7 @@
     }
   }
 
-  function postInsertion($postText, $memberid, $circleid) {
+  function postInsertion($postText, $memberid, $circleid, $fileName, $filetype) {
     try {
       global $conn;
       if( $conn === null) return false;
@@ -207,6 +207,31 @@
 
       $ok = $conn->prepare('INSERT INTO postedin (postid, circleid) VALUES (?, ?)');
       $ok->execute(array($post['id'], $circleid));
+
+      $typedb = "";
+
+      if($fileName != ""){
+        if($filetype == "audio" ){
+          $typedb = 'Post Audio';
+        }
+        else if($filetype == "image" ){
+          $typedb = 'Post Pics';
+        }
+        else if($filetype == "video" ){
+          $typedb = 'Post Video';
+        }
+        else if($filetype == "other" ){
+          $typedb = 'Post Other';
+        }
+        $mediatypeid = $conn->prepare('SELECT * FROM mediatype WHERE name = ?');
+        $mediatypeid->execute(array($typedb));
+        $mediatype = $mediatypeid->fetch();
+
+        $insertion = $conn->prepare('INSERT INTO media (name, typeid, postid) VALUES (?, ?, ?)');
+        $insertion->execute(array($fileName, $mediatype['id'], $post['id']));
+
+        return $stmt && $ok && $insertion;
+      }
 
       return $stmt && $ok;
     } catch(PDOException $ex){
