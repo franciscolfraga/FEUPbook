@@ -20,28 +20,34 @@ $target_file = $_FILES['myfile']['tmp_name'];
 
 if(!empty($_FILES['myfile']['name'])) {
 
-    $mime = $_FILES['myfile']['type'];
-    $_SESSION['error_message'] = 'Caught file!' . $mime;
+  include_once('../getid3/getid3/getid3.php');
+  $getID3 = new getID3;
+  $fileinfo = $getID3->analyze($target_file);
 
-    if(strstr($mime, "video/")){
-      $filetype = "video";
-      $fileName = "video".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16)."";
-      move_uploaded_file( $target_file, "../media/post-video/$fileName");
-    }
-    else if(strstr($mime, "image/")){
+    $mime = $_FILES['myfile']['type'];
+    $name = $_FILES["myfile"]["name"];
+    $ext = end((explode(".", $name))); # extra () to prevent notice
+
+    if(strstr($mime, "image/")){
       $filetype = "image";
-      $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16).".png";
+      $fileName = "pic".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16).".".$fileinfo['fileformat'];
       move_uploaded_file( $target_file , "../media/post-pics/$fileName");
     }
     else if(strstr($mime, "audio/")){
       $filetype = "audio";
-      $fileName = "audio".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16)."";
+      $fileName = "audio".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16).".".$fileinfo['fileformat'];
       move_uploaded_file( $target_file , "../media/post-audio/$fileName");
-  } else {
-    $filetype = "other";
-    $fileName = "other".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16)."";
-    move_uploaded_file( $target_file , "../media/post-other/$fileName");
-  }
+    }
+    else if(strstr($mime, "video/")){
+      $filetype = "video";
+      $fileName = "video".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16).".".$fileinfo['fileformat'];
+      move_uploaded_file( $target_file, "../media/post-video/$fileName");
+    }
+    else {
+      $filetype = "other";
+      $fileName = "other".substr(base_convert(sha1(uniqid(mt_rand())), 16, 36), 0, 16).".".$ext;
+      move_uploaded_file( $target_file , "../media/post-other/$fileName");
+    }
 }
 
 if (postInsertion($postText, $_SESSION['id'], $circle, $fileName, $filetype)) {

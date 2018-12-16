@@ -43,6 +43,37 @@ function load_feed($start, $circleid){
             <tr class="post_text">
               <td colspan="3"><?= $post['message'] ?></td>
             </tr>
+            <?php if($post['mediatype'] != NULL) { ?>
+            <tr class="post_file">
+              <?php if( $post['mediatype'] == 'Post Pics') { ?>
+                <td colspan="3"><p><img id="post-pic" src=<?= "../".$post['medialocation']."".$post['medianame'] ?>></td>
+              <?php } else if( $post['mediatype'] == 'Post Audio') {
+                  $mime = mime_content_type ( "../".$post['medialocation']."".$post['medianame'] );?>
+                  <td colspan="3">
+                    <p></p>
+                    <audio controls>
+                      <source src=<?= "../".$post['medialocation']."".$post['medianame'] ?> type=<?= $mime ?>>
+                      Your browser does not support the audio element.
+                    </audio>
+                  </td>
+                <?php } else if( $post['mediatype'] == 'Post Video') {
+                    $mime = mime_content_type ( "../".$post['medialocation']."".$post['medianame'] );?>
+                    <td colspan="3">
+                      <p></p>
+                      <video controls>
+                        <source src=<?= "../".$post['medialocation']."".$post['medianame'] ?> type=<?= $mime ?>>
+                        Your browser does not support the audio element.
+                      </video>
+                    </td>
+                  <?php } else if( $post['mediatype'] == 'Post Other') {
+                      $mime = mime_content_type ( "../".$post['medialocation']."".$post['medianame'] );?>
+                      <td colspan="3">
+                        <p></p>
+                        <a href=<?= "../".$post['medialocation']."".$post['medianame']?> onclick="post">Download file</a>
+                      </td>
+                  <?php } ?>
+            </tr>
+          <?php } ?>
           </table>
 
         </div>

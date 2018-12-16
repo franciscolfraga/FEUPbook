@@ -59,5 +59,5 @@
     <!--javascript file that will close a notification when you click on it.-->
     <script type="text/javascript" src="js/notification-transition.js"></script>
   </head>
-  <script> getPostsFrom(<?= $postscircle; ?>) </script>
+  <script> getPostsFrom(<?= $postscircle ?>) </script>
 </html>

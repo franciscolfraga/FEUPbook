@@ -17,7 +17,7 @@
       <table>
         <tr>
           <td class="image"><img src="media/errors/check-mark.png" id="no-db-img"></td>
-          <td class="text"><?=$_SUCCESS_MESSAGE?></td>
+          <td class="text"><?= $_SUCCESS_MESSAGE ?></td>
         </tr>
       </table>
     </div>

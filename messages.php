@@ -28,13 +28,21 @@
             <table id="messages_table">
               <tr>
                 <td class="list">
-                  <?php listMessages($chatid); ?>
+                  <?php if($_GET['id'] == "") {?>
+                    <h4 id="no_groups" style="text-align: center">No groups to be displayed!</h4>
+                  <?php } else { ?>
+                    <?php listMessages($chatid); ?>
+                  <?php } ?>
                 </td>
                 <td class="my_messages">
                   <div id="entries-list">
-                    <?php getChat($chatid); ?>
+                    <?php if($_GET['id'] == "") {?>
+                      <h4 id="no_groups" style="text-align: center">No messages to be displayed!</h4>
+                    <?php } else {
+                     getChat($chatid);
+                     include ('views/chat-box.php');
+                     } ?>
                   </div>
-                  <?php include ('views/chat-box.php'); ?>
                 </td>
               </tr>
             </table>

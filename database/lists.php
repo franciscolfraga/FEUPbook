@@ -49,7 +49,11 @@
       global $conn;
       if( $conn === null) return false;
 
-      $stmt = $conn->prepare('SELECT * FROM post JOIN postedin ON post.id = postedin.postid WHERE postedin.circleid = ?  ORDER BY timest DESC');
+      $stmt = $conn->prepare('SELECT post.id, post.timest, post.message, post.memberid, media.name AS medianame, mediatype.location AS medialocation, mediatype.name AS mediatype
+                              FROM post JOIN postedin ON post.id = postedin.postid
+                              LEFT JOIN media ON post.id = media.postid
+                              LEFT JOIN mediatype ON media.typeid = mediatype.id
+                              WHERE postedin.circleid = ?  ORDER BY timest DESC');
       $stmt->execute(array($circleid));
 
       return $stmt->fetchAll();
@@ -91,7 +95,7 @@
     try {
       global $conn;
       if( $conn === null) return false;
-      $stmt = $conn->prepare('SELECT chatentry.message, chatentry.memberid, chatentry.timest, member.name AS member_name, media.name AS media_name, mediatype.location AS medialocation 
+      $stmt = $conn->prepare('SELECT chatentry.message, chatentry.memberid, chatentry.timest, member.name AS member_name, media.name AS media_name, mediatype.location AS medialocation
                               FROM chatentry JOIN member ON chatentry.memberid = member.id
                               JOIN media ON media.id = member.profilepic
                               JOIN mediatype ON media.typeid = mediatype.id
