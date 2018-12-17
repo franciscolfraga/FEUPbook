@@ -33,7 +33,7 @@
     <?php
     foreach($rows as $row) { ?>
       <div class="entry card">
-        <a href="../profile.php?groid=<?= $row['id'] ?>" onclick="post">
+        <a href="../profile.php?profileid=<?= $row['id'] ?>" onclick="post">
           <table>
             <tr class="details">
               <?php $prof = getMemberFromPost($row['id']) ?>
