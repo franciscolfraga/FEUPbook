@@ -18,9 +18,9 @@
       <td id="name-col">
         <a href="../profile.php?profileid=<?= $_SESSION['id'] ?>" onclick="post"><?php echo $_SESSION['name']?></a>
       </td>
-      <!--Sticky-bar search section. Not functional yet.-->
+      <!--Sticky-bar search section.-->
       <td id="search-col">
-        <form method="post" action="#" id="search-bar">
+        <form method="post" action="actions/search-bar.php" id="search-bar">
           <input type="text" name="search" placeholder="Search">
         </form>
       </td>
