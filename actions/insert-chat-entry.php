@@ -9,14 +9,12 @@ $chat= $_POST['chatid'];
 $location = $_POST['location'];
 
 if($postText == ""){
-  $_SESSION['error_message'] = 'Your post had no content';
+  $_SESSION['error_message'] = 'Your message had no content';
   die(header('Location: ../index.php'));
 }
 
-if (chatInsertion($postText, $_SESSION['id'], $chat)) {
-  $_SESSION['success_message'] = 'Posted successfully!';
-} else {
-  $_SESSION['error_message'] = 'Post failed!';
+if (!chatInsertion($postText, $_SESSION['id'], $chat)) {
+  $_SESSION['error_message'] = 'Message failed!';
 }
 
 header('Location: ../../'.$location);

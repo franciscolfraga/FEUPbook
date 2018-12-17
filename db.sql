@@ -214,3 +214,7 @@ INSERT INTO program VALUES (9,'Master in Chemical Engineering','MIEQ',1,currval(
 INSERT INTO media VALUES (DEFAULT,'mief.png',1,NULL);
 INSERT INTO circle VALUES (DEFAULT, 2);
 INSERT INTO program VALUES (10,'Master in Physical Engineering','MIEF',9,currval('media_id_seq'),currval('circle_id_seq'));
+
+SELECT setval('member_id_seq', 2000, true);
+SELECT setval('circle_id_seq', 1520, true);
+SELECT setval('post_id_seq', 46000, true);

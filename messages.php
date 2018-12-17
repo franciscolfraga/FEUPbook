@@ -40,9 +40,9 @@
                       <h4 id="no_groups" style="text-align: center">No messages to be displayed!</h4>
                     <?php } else {
                      getChat($chatid);
-                     include ('views/chat-box.php');
                      } ?>
                   </div>
+                  <?php if($_GET['id'] !== "") include ('views/chat-box.php'); ?>
                 </td>
               </tr>
             </table>
