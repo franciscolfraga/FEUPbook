@@ -1,4 +1,4 @@
-<form method="post" action="/actions/register.php" id="register" style="display: none;">
+<form method="post" action="actions/register.php" id="register" style="display: none;">
   <h2>Please sign up...</h2>
   <table>
     <tr>

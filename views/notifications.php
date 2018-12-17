@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="../css/notifications.css">
+  <link rel="stylesheet" type="text/css" href="css/notifications.css">
 </head>
 <div class="notifications-area">
     <?php if (isset($_ERROR_MESSAGE)) { ?>

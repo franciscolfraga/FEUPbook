@@ -17,5 +17,5 @@ if (!chatInsertion($postText, $_SESSION['id'], $chat)) {
   $_SESSION['error_message'] = 'Message failed!';
 }
 
-header('Location: ../../'.$location);
+header('Location: ../'.$location);
 ?>

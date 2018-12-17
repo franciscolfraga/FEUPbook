@@ -17,7 +17,7 @@ include ('database/lists.php');?>
               $currentMember = getMember($member['id']);
               ?>
                <tr class="details">
-                 <td class="member_pic"><img src="../<?= $currentMember['profilepic'] ?>"></td>
+                 <td class="member_pic"><img src="<?= $currentMember['profilepic'] ?>"></td>
                  <td class="member_name"><p><p><?= $currentMember['name'] ?><p><p></td>
                </tr>
       <?php } } ?>
@@ -60,8 +60,8 @@ include ('database/lists.php');?>
             <div class="card entry">
               <table>
                 <tr class="message_details">
-                  <td class="message_member_pic"><a href="../profile.php?profileid=<?= $entry['memberid'] ?>" onclick="post"><img src="<?= "../".$entry['medialocation'].$entry['media_name']; ?>"></a></td>
-                  <td class="message_member_name"><p><a href="../profile.php?profileid=<?= $member['memberidid'] ?>" onclick="post"><?= $entry['member_name'] ?></a><p></td>
+                  <td class="message_member_pic"><a href="profile.php?profileid=<?= $entry['memberid'] ?>" onclick="post"><img src="<?= "".$entry['medialocation'].$entry['media_name']; ?>"></a></td>
+                  <td class="message_member_name"><p><a href="profile.php?profileid=<?= $member['memberid'] ?>" onclick="post"><?= $entry['member_name'] ?></a><p></td>
                   <td class="message_post_date"><p><?= $datestring ?><p></td>
                 </tr>
                 <tr><td class="message_space" id="myborder" colspan="3"><p></td></tr>
@@ -74,8 +74,8 @@ include ('database/lists.php');?>
           <div class="card entry foreign">
             <table>
               <tr class="message_details">
-                <td class="message_member_pic"><a href="../profile.php?profileid=<?= $entry['memberid'] ?>" onclick="post"><img src="<?= "../".$entry['medialocation'].$entry['media_name']; ?>"></a></td>
-                <td class="message_member_name"><p><a href="../profile.php?profileid=<?= $member['memberidid'] ?>" onclick="post"><?= $entry['member_name'] ?></a><p></td>
+                <td class="message_member_pic"><a href="profile.php?profileid=<?= $entry['memberid'] ?>" onclick="post"><img src="<?= "".$entry['medialocation'].$entry['media_name']; ?>"></a></td>
+                <td class="message_member_name"><p><a href="profile.php?profileid=<?= $member['memberid'] ?>" onclick="post"><?= $entry['member_name'] ?></a><p></td>
                 <td class="message_post_date"><p><?= $datestring ?><p></td>
               </tr>
               <tr><td class="message_space" id="myborder" colspan="3"><p></td></tr>

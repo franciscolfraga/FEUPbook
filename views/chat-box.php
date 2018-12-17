@@ -1,4 +1,4 @@
-<form method="post" action="../actions/insert-chat-entry.php" id="chat-box-form">
+<form method="post" action="actions/insert-chat-entry.php" id="chat-box-form">
     <input type="text" name="chatid" value="<?= $chatid; ?>" style="display:none;">
     <input type="text" name="location" value="<?= $location; ?>" style="display:none;">
     <textarea name="post-text" id="mytextarea" cols="40" rows="5" placeholder="Post something..."></textarea>

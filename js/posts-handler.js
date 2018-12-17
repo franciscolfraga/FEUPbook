@@ -14,7 +14,7 @@ function getPostsFrom(wantedcircle){
 
   function addPostRecursively(){
     $.ajax({
-      url: '../actions/addFeedPosts.php',
+      url: '/~up201303097/actions/addFeedPosts.php',
       type: 'post',
       data: { "start": postscounter, "circleid": circleid},
         success: function(data) {
@@ -44,7 +44,7 @@ function getPostsFrom(wantedcircle){
           bottomReached = true;
           $('#posts_feed').append(loader);
           $.ajax({
-            url: '../actions/addFeedPosts.php',
+            url: '/~up201303097/actions/addFeedPosts.php',
             type: 'post',
             data: {"start": postscounter, "circleid": circleid},
               success: function(data) {

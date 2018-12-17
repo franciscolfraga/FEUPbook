@@ -16,7 +16,7 @@
     <?php
     foreach($rows as $row) { ?>
       <div class="entry card">
-        <a href="../profile.php?profileid=<?= $row['id'] ?>" onclick="post">
+        <a href="profile.php?profileid=<?= $row['id'] ?>" onclick="post">
           <table>
             <tr class="details">
               <?php $prof = getMemberFromPost($row['id']) ?>
@@ -41,7 +41,7 @@
       <?php
       foreach($rows as $row) { ?>
         <div class="entry card">
-          <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
             <table>
               <tr class="details">
                 <td class="initials"><p><?= $row['initials'] ?></p></td>
@@ -66,7 +66,7 @@
        <?php
        foreach($rows as $row) { ?>
          <div class="entry card">
-           <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+           <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
              <table>
                <tr class="details">
                  <td class="initials"><p><?= $row['initials'] ?></p></td>
@@ -92,7 +92,7 @@
        <?php
        foreach($rows as $row) { ?>
          <div class="entry card">
-           <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+           <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
              <table>
                <tr class="details">
                  <td class="initials"><p><?= $row['initials'] ?></p></td>
@@ -119,7 +119,7 @@
        <?php
        foreach($rows as $row) { ?>
          <div class="entry card">
-           <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+           <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
              <table>
                <tr class="details">
                  <td style="text-align:center;"><p><?= $row['reference'] ?></p></td>
@@ -172,7 +172,7 @@
       <?php
       foreach($rows as $row) { ?>
         <div class="entry card">
-          <a href="../profile.php?profileid=<?= $row['id'] ?>" onclick="post">
+          <a href="profile.php?profileid=<?= $row['id'] ?>" onclick="post">
             <table>
               <tr class="details">
                 <?php $prof = getMemberFromPost($row['id']) ?>
@@ -199,7 +199,7 @@
       <?php
       foreach($rows as $row) { ?>
         <div class="entry card">
-          <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
             <table>
               <tr class="details">
                 <td class="initials"><p><?= $row['initials'] ?></p></td>
@@ -224,7 +224,7 @@
       <?php
       foreach($rows as $row) { ?>
         <div class="entry card">
-          <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
             <table>
               <tr class="details">
                 <td class="initials"><p><?= $row['initials'] ?></p></td>
@@ -251,7 +251,7 @@
       <?php
       foreach($rows as $row) { ?>
         <div class="entry card">
-          <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
             <table>
               <tr class="details">
                 <td class="initials"><p><?= $row['initials'] ?></p></td>
@@ -278,7 +278,7 @@
       <?php
       foreach($rows as $row) { ?>
         <div class="entry card">
-          <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <a href="groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
             <table>
               <tr class="details">
                 <td style="text-align:center;"><p><?= $row['reference'] ?></p></td>

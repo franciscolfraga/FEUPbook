@@ -6,7 +6,7 @@ $(document).ready(function(){
         const endOfNews = '<div id ="endNews"><b>No more news to be displayed!</b></div>';
         $('#news_feed').append(loader);
         $.ajax({
-          url: '../actions/addNews.php',
+          url: 'actions/addNews.php',
           type: 'post',
           data: { "start": "0"},
             success: function(data) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
               bottomReached = true;
               $('#news_feed').append(loader);
               $.ajax({
-                url: '../actions/addNews.php',
+                url: 'actions/addNews.php',
                 type: 'post',
                 data: { "start": newscounter},
                   success: function(data) {

@@ -39,11 +39,11 @@ After using the Java utility, some of the sql serials should be updated. This ca
   - [X] Settings page backend.
   - [ ] Algorithm to define and evaluate affinity levels between profiles.
   - [ ] Notifications.
-  - [ ] Chat.
+  - [X] Chat.
   - [ ] Groups creation and management.
   - [X] Automatic FEUP news display on feed.
   - [ ] Feed, chat and notifications asynchronous refresh.
-  - [ ] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
+  - [X] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
   - [ ] Password recovering.
   - [ ] Administrator members that can edit or delete any inserted post.
   - [X] Search bar.

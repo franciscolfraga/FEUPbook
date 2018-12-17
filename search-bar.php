@@ -20,9 +20,10 @@
     <!--If a session variable is set it will display a logged in member, it
         includes a session.php file where all the necessary .php and .css
         files are included in order to create a session environment.-->
-    <?php if (isset($_SESSION['email'])) { ?>
+    <?php if (isset($_SESSION['email'])) {
+      include ('views/sticky-bar.php'); ?>
       <div id="session">
-				<?php include ('views/sticky-bar.php');
+				<?php
 							include ('views/search.php'); ?>
       </div>
     <!--On the other hand, if a session variable is not set it will display

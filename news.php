@@ -13,7 +13,7 @@
       for all FEUPbook .php files, in this way we avoid code repeating. Whereas
       index.css has the css inherent to the current page.-->
    <link rel="stylesheet" type="text/css" href="css/skeleton.css">
-   <link rel="stylesheet" type="text/css" href="../css/news.css">
+   <link rel="stylesheet" type="text/css" href="css/news.css">
    <link rel="icon" href="media/logo.png">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>

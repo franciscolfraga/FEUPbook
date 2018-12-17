@@ -16,7 +16,7 @@
         </tr>
         <?php if( $currentMember['id'] != $_SESSION['id']) { ?>
         <tr>
-          <td><a href="../actions/chat.php?member1=<?= $_SESSION['id'] ?>&member2=<?= $currentMember['id'] ?>" onclick="post"><img id="chat-logo" src="media/icons/chat.png"></a></td>
+          <td><a href="actions/chat.php?member1=<?= $_SESSION['id'] ?>&member2=<?= $currentMember['id'] ?>" onclick="post"><img id="chat-logo" src="media/icons/chat.png"></a></td>
         </tr>
         <?php }
         if (isset($currentMember['programid']) and $currentMember['membertypeid'] == 1) {

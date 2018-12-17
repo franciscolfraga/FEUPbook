@@ -1,4 +1,4 @@
-<form method="post" action="/actions/login.php" id="login" style="display: block;">
+<form method="post" action="actions/login.php" id="login" style="display: block;">
   <h2>Please sign in...</h2>
   <table>
     <tr>

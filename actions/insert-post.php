@@ -10,7 +10,7 @@ $location = $_POST['location'];
 
 if($postText == ""){
   $_SESSION['error_message'] = 'Your post had no text';
-  die(header('Location: ../index.php'));
+  die(header('Location: index.php'));
 }
 
 $fileName = "";
@@ -56,5 +56,5 @@ if (postInsertion($postText, $_SESSION['id'], $circle, $fileName, $filetype)) {
   $_SESSION['error_message'] = 'Post failed!';
 }
 
-header('Location: ../../'.$location);
+header('Location: ../'.$location);
 ?>

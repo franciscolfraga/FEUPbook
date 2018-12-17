@@ -19,11 +19,11 @@
         // Delete his last pic
         if($_SESSION['profilepic'] != 'media/profile-pics/default.png'){
           $old = getcwd(); // Save the current directory
-          chdir("../../");
+          chdir("../");
           unlink($_SESSION['profilepic']);
           chdir($old); // Restore the old working directory
         }
-        $_SESSION['profilepic'] = "/media/profile-pics/$fileName";
+        $_SESSION['profilepic'] = "media/profile-pics/$fileName";
         $_SESSION['success_message'] = "Profile picture uploaded successfully!";
       } else {
         $_SESSION['error_message'] = 'Program upload failed!';
