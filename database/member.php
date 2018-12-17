@@ -142,6 +142,35 @@
     }
   }
 
+  function checkAllowed($memberid, $circleid) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT * FROM partof WHERE memberid = ? AND circleid = ?');
+      $stmt->execute(array($memberid, $circleid));
+
+      return $stmt->fetch();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+  function checkAllowedChat($memberid, $circleid) {
+    try {
+      global $conn;
+      if( $conn === null) return false;
+
+      $stmt = $conn->prepare('SELECT * FROM partof JOIN chat ON chat.circleid = partof.circleid WHERE partof.memberid = ? AND chat.id = ?');
+      $stmt->execute(array($memberid, $circleid));
+
+      return $stmt->fetch();
+
+    } catch(PDOException $ex){
+      $_SESSION['db_error'] = $ex;
+    }
+  }
+
   function isValidMember($email, $password) {
     try {
       global $conn;
@@ -270,9 +299,21 @@
                               JOIN circle ON partof.circleid = circle.id
                               JOIN circletype ON circle.typeid = circletype.id
                               JOIN program ON circle.id = program.circleid
-                              WHERE memberid = ? AND typeid=2');
+                              WHERE memberid = ? AND typeid=2
+                              UNION
+                              SELECT partof.memberid, partof.circleid, circletype.name AS circletype, course.name FROM partof
+                              JOIN circle ON partof.circleid = circle.id
+                              JOIN circletype ON circle.typeid = circletype.id
+                              JOIN course ON circle.id = course.circleid
+                              WHERE memberid = ? AND typeid=3
+                              UNION
+                              SELECT partof.memberid, partof.circleid, circletype.name AS circletype, class.reference AS name FROM partof
+                              JOIN circle ON partof.circleid = circle.id
+                              JOIN circletype ON circle.typeid = circletype.id
+                              JOIN class ON circle.id = class.circleid
+                              WHERE memberid = ? AND typeid=4');
 
-      $stmt->execute(array($memberid, $memberid));
+      $stmt->execute(array($memberid, $memberid, $memberid, $memberid));
 
       return $stmt->fetchAll();
 

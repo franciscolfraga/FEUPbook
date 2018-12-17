@@ -32,6 +32,7 @@ include ('database/lists.php');?>
   } ?>
 
   <?php function getChat($chatid){
+    if(checkAllowedChat($_SESSION['id'], $chatid)){
     $entries = getChatEntries($chatid);
       if ($entries) {
         foreach($entries as $entry) {
@@ -84,7 +85,9 @@ include ('database/lists.php');?>
             </table>
           </div>
       <?php } }
-          } else {
+      } else {
         ?><h4 id="no_groups" style="text-align: center">No messages in this chat!</h4><?php
+      } } else {
+        ?><h4 id="no_groups" style="text-align: center">Not allowed to see the content of this chat!</h4><?php
       }
     } ?>

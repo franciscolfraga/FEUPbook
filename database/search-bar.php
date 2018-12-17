@@ -17,7 +17,7 @@
         $search[0] = 'AND NOT';
       }
 
-      $query = 'SELECT id, name, initials
+      $query = 'SELECT id, name, initials, circleid
                 FROM department
                 WHERE (name ILIKE ? OR initials ILIKE ?) ' . $search[0] . ' (name ILIKE ? OR initials ILIKE ?)';
 
@@ -34,7 +34,7 @@
     global $conn;
 
     if (!is_array($search)) {
-      $query = 'SELECT id, name, initials
+      $query = 'SELECT id, name, initials, circleid
                 FROM program
                 WHERE name ILIKE ? OR initials ILIKE ?';
 
@@ -62,7 +62,7 @@
     global $conn;
 
     if (!is_array($search)) {
-      $query = 'SELECT id, name, initials, year
+      $query = 'SELECT id, name, initials, year, circleid
                 FROM course
                 WHERE name ILIKE ? OR initials ILIKE ?';
 
@@ -73,7 +73,7 @@
         $search[0] = 'AND NOT';
       }
 
-      $query = 'SELECT id, name, initials, year
+      $query = 'SELECT id, name, initials, year, circleid
                 FROM course
                 WHERE (name ILIKE ? OR initials ILIKE ?) ' . $search[0] . ' (name ILIKE ? OR initials ILIKE ?)';
 
@@ -90,7 +90,7 @@
     global $conn;
 
     if (!is_array($search)) {
-      $query = 'SELECT id, reference
+      $query = 'SELECT id, reference, circleid
                 FROM class
                 WHERE reference ILIKE ?';
 
@@ -101,7 +101,7 @@
         $search[0] = 'AND NOT';
       }
 
-      $query = 'SELECT id, reference
+      $query = 'SELECT id, reference, circleid
                 FROM class
                 WHERE reference ILIKE ? ' . $search[0] . ' reference ILIKE ?';
 
@@ -139,5 +139,6 @@
 
     return $stmt->fetchAll();
   }
+
 
 ?>

@@ -28,11 +28,13 @@
             <table id="messages_table">
               <tr>
                 <td class="list">
+                  <div id="message-list">
                   <?php if($_GET['id'] == "") {?>
                     <h4 id="no_groups" style="text-align: center">No groups to be displayed!</h4>
                   <?php } else { ?>
                     <?php listMessages($chatid); ?>
                   <?php } ?>
+                </div>
                 </td>
                 <td class="my_messages">
                   <div id="entries-list">

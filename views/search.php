@@ -1,6 +1,7 @@
 <?php
   include ('config/init.php');
   include ('database/search-bar.php');
+  include ('database/member.php');
 
   // Analyze input
 
@@ -16,93 +17,140 @@
     }
   } else {
     $search = $_GET['field'];
-  }
+  } ?>
 
-  // LIST DEPARTMENTS
+  <h1 class="search_title"> Searching results for: "<?= $_GET['field']; ?>"</h1>
 
-  $rows = getDepartmentsByPartialNameOrInitials($search);
-
-  if ($rows) {
-    echo '<table>';
-    echo '<caption>Departments</caption>';
-    echo '<tr><th>name</th><th>initials</th></tr>';
-    foreach($rows as $row) {
-      echo '<tr>';
-      echo '<td>' . $row['name'] . '</td>';
-      echo '<td>' . $row['initials'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</table>';
-  }
-
-  // LIST PROGRAMS
-
-  $rows = getProgramsByPartialNameOrInitials($search);
-
-  if ($rows) {
-    echo '<table>';
-    echo '<caption>Programs</caption>';
-    echo '<tr><th>name</th><th>initials</th></tr>';
-    foreach($rows as $row) {
-      echo '<tr>';
-      echo '<td>' . $row['name'] . '</td>';
-      echo '<td>' . $row['initials'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</table>';
-  }
-
-  // LIST COURSES
-
-  $rows = getCoursesByPartialNameOrInitials($search);
-
-  if ($rows) {
-    echo '<table>';
-    echo '<caption>Courses</caption>';
-    echo '<tr><th>name</th><th>initials</th><th>year</th></tr>';
-    foreach($rows as $row) {
-      echo '<tr>';
-      echo '<td>' . $row['name'] . '</td>';
-      echo '<td>' . $row['initials'] . '</td>';
-      echo '<td>' . $row['year'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</table>';
-  }
-
-  // LIST CLASSES
-
-  $rows = getClassesByPartialReference($search);
-
-  if ($rows) {
-    echo '<table>';
-    echo '<caption>Classes</caption>';
-    echo '<tr><th>reference</th></tr>';
-    foreach($rows as $row) {
-      echo '<tr>';
-      echo '<td>' . $row['reference'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</table>';
-  }
-
+  <?php
   // LIST MEMBERS
 
   $rows = getMembersByPartialName($search);
 
   if ($rows) {
-    echo '<table>';
-    echo '<caption>Members</caption>';
-    echo '<tr><th>name</th><th>email</th><th>membertypeid</th><th>profilepic</th></tr>';
-    foreach($rows as $row) {
-      echo '<tr>';
-      echo '<td>' . $row['name'] . '</td>';
-      echo '<td>' . $row['email'] . '</td>';
-      echo '<td>' . $row['membertypeid'] . '</td>';
-      echo '<td>' . $row['profilepic'] . '</td>';
-      echo '</tr>';
-    }
-    echo '</table>';
-  }
+    ?>
+    <div class="section">
+    <h2 class="title"> Members </h2>
+    <?php
+    foreach($rows as $row) { ?>
+      <div class="entry card">
+        <a href="../profile.php?groid=<?= $row['id'] ?>" onclick="post">
+          <table>
+            <tr class="details">
+              <?php $prof = getMemberFromPost($row['id']) ?>
+              <td class="member_pic"><img src="<?= $prof['profilepic'] ?>"></td>
+              <td class="member_name"><p><?= $row['name'] ?><p></td>
+            </tr>
+          </table>
+          </a>
+      </div>
+      <p></p>
+    <?php  } ?>
+    </div>
+  <?php  }
+   ?>
+
+  <?php
+  // LIST DEPARTMENTS
+
+  $rows = getDepartmentsByPartialNameOrInitials($search);
+
+  if ($rows) { ?>
+    <div class="section">
+    <h2 class="title"> Departments </h2>
+    <?php
+    foreach($rows as $row) { ?>
+      <div class="entry card">
+        <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <table>
+            <tr class="details">
+              <td class="initials"><p><?= $row['initials'] ?></p></td>
+              <td class="member_name"><p><?= $row['name'] ?></p></td>
+            </tr>
+          </table>
+          </a>
+      </div>
+      <p></p>
+    <?php  } ?>
+    </div>
+  <?php  }
+   ?>
+
+  <?php
+  // LIST PROGRAMS
+  $rows = getProgramsByPartialNameOrInitials($search);
+
+  if ($rows) { ?>
+  <div class="section">
+    <h2 class="title"> Programs </h2>
+    <?php
+    foreach($rows as $row) { ?>
+      <div class="entry card">
+        <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <table>
+            <tr class="details">
+              <td class="initials"><p><?= $row['initials'] ?></p></td>
+              <td class="member_name"><p><?= $row['name'] ?></p></td>
+            </tr>
+          </table>
+          </a>
+      </div>
+      <p></p>
+   <?php  } ?>
+   </div>
+ <?php  }
+  ?>
+
+  <?php
+  // LIST COURSES
+
+  $rows = getCoursesByPartialNameOrInitials($search);
+
+
+  if ($rows) { ?>
+  <div class="section">
+    <h2 class="title"> Courses </h2>
+    <?php
+    foreach($rows as $row) { ?>
+      <div class="entry card">
+        <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <table>
+            <tr class="details">
+              <td class="initials"><p><?= $row['initials'] ?></p></td>
+              <td class="member_name"><p><?= $row['name'] ?></p></td>
+              <td class="year"><p><?= $row['year'] ?></p></td>
+            </tr>
+          </table>
+          </a>
+      </div>
+      <p></p>
+   <?php  } ?>
+   </div>
+ <?php  }
+  ?>
+
+  <?php
+  // LIST CLASSES
+
+  $rows = getClassesByPartialReference($search);
+
+  if ($rows) { ?>
+  <div class="section">
+    <h2 class="title"> Classes </h2>
+    <?php
+    foreach($rows as $row) { ?>
+      <div class="entry card">
+        <a href="../groupview.php?groupid=<?= $row['circleid'] ?>" onclick="post">
+          <table>
+            <tr class="details">
+              <td style="text-align:center;"><p><?= $row['reference'] ?></p></td>
+            </tr>
+          </table>
+          </a>
+      </div>
+      <p></p>
+   <?php  } ?>
+   </div>
+ <?php  }
+  ?>
 
 ?>

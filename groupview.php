@@ -23,11 +23,14 @@
         <?php $postscircle = $_GET['groupid'];
           $location = 'groupview.php?groupid='.$postscircle;
           include ('views/sticky-bar.php');
-          $groupDetails = getCircleDetails($postscircle)?>
-          <h1 class="group_title"> <?= $groupDetails['name']; ?> Group </h1>
-          <?php  include ('views/post-box.php'); ?>
-          <div id="posts_feed" class = "group_feed">
-          </div>
+          $groupDetails = getCircleDetails($postscircle);
+          
+          if(checkAllowed($_SESSION['id'], $postscircle)) {?>
+            <h1 class="group_title"> <?= $groupDetails['name']; ?> Group </h1>
+            <?php  include ('views/post-box.php'); ?>
+            <div id="posts_feed" class = "group_feed">
+            </div>
+          <?php } else { ?> <h1 class="group_title"> You are not allowed to see this content!</h1> <?php } ?>
       </div>
     <?php } else {
       $_SESSION['error_message'] = 'You are not logged in!';
