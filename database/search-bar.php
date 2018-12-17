@@ -5,7 +5,7 @@
   function getDepartmentsByPartialNameOrInitials($search) {
     global $conn;
 
-    $query = 'SELECT name, initials FROM department WHERE name ILIKE ? OR initials ILIKE ?';
+    $query = 'SELECT id, name, initials FROM department WHERE name ILIKE ? OR initials ILIKE ?';
 
     $stmt = $conn->prepare($query);
     $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
@@ -17,7 +17,7 @@
   function getProgramsByPartialNameOrInitials($search) {
     global $conn;
 
-    $query = 'SELECT name, initials FROM program WHERE name ILIKE ? OR initials ILIKE ?';
+    $query = 'SELECT id, name, initials FROM program WHERE name ILIKE ? OR initials ILIKE ?';
 
     $stmt = $conn->prepare($query);
     $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
@@ -29,7 +29,7 @@
   function getCoursesByPartialNameOrInitials($search) {
     global $conn;
 
-    $query = 'SELECT name, initials, year FROM course WHERE name ILIKE ? OR initials ILIKE ?';
+    $query = 'SELECT id, name, initials, year FROM course WHERE name ILIKE ? OR initials ILIKE ?';
 
     $stmt = $conn->prepare($query);
     $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
@@ -41,7 +41,7 @@
   function getClassesByPartialReference($search) {
     global $conn;
 
-    $query = 'SELECT reference FROM class WHERE reference ILIKE ?';
+    $query = 'SELECT id, reference FROM class WHERE reference ILIKE ?';
 
     $stmt = $conn->prepare($query);
     $stmt->execute(array('%' . $search . '%'));
@@ -53,7 +53,7 @@
   function getMembersByPartialName($search) {
     global $conn;
 
-    $query = 'SELECT name, email, membertypeid, profilepic FROM member WHERE name ILIKE ?';
+    $query = 'SELECT id, name, email, membertypeid, profilepic FROM member WHERE name ILIKE ?';
 
     $stmt = $conn->prepare($query);
     $stmt->execute(array('%' . $search . '%'));
