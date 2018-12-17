@@ -5,58 +5,138 @@
   function getDepartmentsByPartialNameOrInitials($search) {
     global $conn;
 
-    $query = 'SELECT id, name, initials FROM department WHERE name ILIKE ? OR initials ILIKE ?';
+    if (!is_array($search)) {
+      $query = 'SELECT id, name, initials
+                FROM department
+                WHERE name ILIKE ? OR initials ILIKE ?';
 
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+    } else {
+      if ($search[0] === 'NOT') {
+        $search[0] = 'AND NOT';
+      }
+
+      $query = 'SELECT id, name, initials
+                FROM department
+                WHERE (name ILIKE ? OR initials ILIKE ?) ' . $search[0] . ' (name ILIKE ? OR initials ILIKE ?)';
+
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search[1] . '%', '%' . $search[1] . '%', '%' . $search[2] . '%', '%' . $search[2] . '%'));
+    }
+
     return $stmt->fetchAll();
   }
 
-  // PROGRAMS
+  // LIST PROGRAMS
 
   function getProgramsByPartialNameOrInitials($search) {
     global $conn;
 
-    $query = 'SELECT id, name, initials FROM program WHERE name ILIKE ? OR initials ILIKE ?';
+    if (!is_array($search)) {
+      $query = 'SELECT id, name, initials
+                FROM program
+                WHERE name ILIKE ? OR initials ILIKE ?';
 
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+    } else {
+      if ($search[0] === 'NOT') {
+        $search[0] = 'AND NOT';
+      }
+
+      $query = 'SELECT id, name, initials
+                FROM program
+                WHERE (name ILIKE ? OR initials ILIKE ?) ' . $search[0] . ' (name ILIKE ? OR initials ILIKE ?)';
+
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search[1] . '%', '%' . $search[1] . '%', '%' . $search[2] . '%', '%' . $search[2] . '%'));
+    }
+
     return $stmt->fetchAll();
   }
 
-  // COURSES
+  // LIST COURSES
 
   function getCoursesByPartialNameOrInitials($search) {
     global $conn;
 
-    $query = 'SELECT id, name, initials, year FROM course WHERE name ILIKE ? OR initials ILIKE ?';
+    if (!is_array($search)) {
+      $query = 'SELECT id, name, initials, year
+                FROM course
+                WHERE name ILIKE ? OR initials ILIKE ?';
 
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search . '%', '%' . $search . '%'));
+    } else {
+      if ($search[0] === 'NOT') {
+        $search[0] = 'AND NOT';
+      }
+
+      $query = 'SELECT id, name, initials, year
+                FROM course
+                WHERE (name ILIKE ? OR initials ILIKE ?) ' . $search[0] . ' (name ILIKE ? OR initials ILIKE ?)';
+
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search[1] . '%', '%' . $search[1] . '%', '%' . $search[2] . '%', '%' . $search[2] . '%'));
+    }
+
     return $stmt->fetchAll();
   }
 
-  // CLASSES
+  // LIST CLASSES
 
   function getClassesByPartialReference($search) {
     global $conn;
 
-    $query = 'SELECT id, reference FROM class WHERE reference ILIKE ?';
+    if (!is_array($search)) {
+      $query = 'SELECT id, reference
+                FROM class
+                WHERE reference ILIKE ?';
 
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array('%' . $search . '%'));
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search . '%'));
+    } else {
+      if ($search[0] === 'NOT') {
+        $search[0] = 'AND NOT';
+      }
+
+      $query = 'SELECT id, reference
+                FROM class
+                WHERE reference ILIKE ? ' . $search[0] . ' reference ILIKE ?';
+
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search[1] . '%', '%' . $search[2] . '%'));
+    }
+
     return $stmt->fetchAll();
   }
 
-  // MEMBERS
+  // LIST MEMBERS
 
   function getMembersByPartialName($search) {
     global $conn;
 
-    $query = 'SELECT id, name, email, membertypeid, profilepic FROM member WHERE name ILIKE ?';
+    if (!is_array($search)) {
+      $query = 'SELECT id, name, email, membertypeid, profilepic
+                FROM member
+                WHERE name ILIKE ?';
 
-    $stmt = $conn->prepare($query);
-    $stmt->execute(array('%' . $search . '%'));
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search . '%'));
+    } else {
+      if ($search[0] === 'NOT') {
+        $search[0] = 'AND NOT';
+      }
+
+      $query = 'SELECT id, name, email, membertypeid, profilepic
+                FROM member
+                WHERE name ILIKE ? ' . $search[0] . ' name ILIKE ?';
+
+      $stmt = $conn->prepare($query);
+      $stmt->execute(array('%' . $search[1] . '%', '%' . $search[2] . '%'));
+    }
+
     return $stmt->fetchAll();
   }
 

@@ -2,9 +2,25 @@
   include ('config/init.php');
   include ('database/search-bar.php');
 
-  // List departments
+  // Analyze input
 
-  $rows = getDepartmentsByPartialNameOrInitials($_GET['field']);
+  $pieces = explode(' ', $_GET['field'], 3); // max 3 pieces
+
+  if (sizeof($pieces) > 2) {
+    $logical = strtoupper($pieces[1]);
+
+    if ($logical === 'AND' OR $logical === 'OR' OR $logical === 'NOT') {
+      $search = array($logical, $pieces[0], $pieces[2]);
+    } else {
+      $search = $_GET['field'];
+    }
+  } else {
+    $search = $_GET['field'];
+  }
+
+  // LIST DEPARTMENTS
+
+  $rows = getDepartmentsByPartialNameOrInitials($search);
 
   if ($rows) {
     echo '<table>';
@@ -19,9 +35,9 @@
     echo '</table>';
   }
 
-  // List programs
+  // LIST PROGRAMS
 
-  $rows = getProgramsByPartialNameOrInitials($_GET['field']);
+  $rows = getProgramsByPartialNameOrInitials($search);
 
   if ($rows) {
     echo '<table>';
@@ -36,9 +52,9 @@
     echo '</table>';
   }
 
-  // List courses
+  // LIST COURSES
 
-  $rows = getCoursesByPartialNameOrInitials($_GET['field']);
+  $rows = getCoursesByPartialNameOrInitials($search);
 
   if ($rows) {
     echo '<table>';
@@ -54,9 +70,9 @@
     echo '</table>';
   }
 
-  // List classes
+  // LIST CLASSES
 
-  $rows = getClassesByPartialReference($_GET['field']);
+  $rows = getClassesByPartialReference($search);
 
   if ($rows) {
     echo '<table>';
@@ -70,9 +86,9 @@
     echo '</table>';
   }
 
-  // List members
+  // LIST MEMBERS
 
-  $rows = getMembersByPartialName($_GET['field']);
+  $rows = getMembersByPartialName($search);
 
   if ($rows) {
     echo '<table>';

@@ -21,14 +21,12 @@
     unset($_SESSION['db_error']);
   }
 
-  $schema = 'feupbooktest';
-
   try{
     $conn = new PDO('pgsql:host=dbm.fe.up.pt;port=5432;dbname=sibd1812', 'sibd1812', '9RONM1945N');
     $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $conn->query("SET SCHEMA '$schema'");
+    $conn->query("SET SCHEMA 'feupbookdb'");
   } catch(PDOException $ex){
     $_SESSION['db_error'] = $ex;
   }
