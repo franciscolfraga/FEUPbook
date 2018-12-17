@@ -19,11 +19,12 @@ The following lines in XAMPP's php.ini should be uncommented or added: extension
 
 ## Database Design and Implementation
 
-The database design is available in 2 pdf documents placed at the root of the repository. The sql script that implements the database is available at the same location. The sql script also partially populates the database.
+The database design is available in 2 pdf documents placed at the root of the repository. The sql script that implements the database is available at the same location (db.sql). This sql script also partially populates the database.
 
 ## Database Population
 
 Additional population operations are performed with a Java utility. The code for such utility can be found at https://github.com/mcardoso-pt/FEUPbookDB.
+After using the Java utility, some of the sql serials should be updated. This can be done by running the db_serial_updates.sql script.
 
 ## Deployment
 
@@ -45,7 +46,7 @@ Additional population operations are performed with a Java utility. The code for
   - [ ] Files sharing and ability to parse some formats into feed (video, image, sound and pdf).
   - [ ] Password recovering.
   - [ ] Administrator members that can edit or delete any inserted post.
-  - [ ] Search bar.
+  - [X] Search bar.
 
 ## Assignments
 
